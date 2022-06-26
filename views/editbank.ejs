@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/public/style.css" type="text/css">
+  
+</head>
+<!-- An integrity attribute is used to allow the browser to check the file source to ensure that the code is never loaded if the source has been manipulated. Crossorigin attribute is present when a request is loaded using 'CORS' which is now a requirement of SRI checking when not loaded from the 'same-origin'. -->
+<body>
+<div class="todo-container">
+    <h2>To-Do List</h2>
+
+    <div class="todo">
+        <!-- operating on the same form from todo.ejs -->
+        <form action="" method="POST"> 
+        <input type="text" name="content">
+        <button type="submit">Submit</button>    
+        </form>
+
+        <ul>
+            <!-- method on same object. different tasks. this one grabbing id  -->
+            <% todoTasks.forEach(details => { %>
+                <% if (details._id == idTask) { %>
+                <li>
+                    <form action="/edit/<%= details._id %>" method="POST">
+                        <input type="text" value="<%= details.content %>" name="content">
+                        <button type="submit">Confirm</button>
+                        <a href="/" class="cancel">Cancel</a>
+                    </form>
+                </li>
+
+                <% } else { %>
+                <li class="todo-list-item">
+                    <div class="todo-list-item-name"><%= details.content %></div>
+
+                    <a href="/edit/<%= details._id %>" class="edit"><span>Edit</span>
+                    </a>
+
+                    <a href="/remove/<%= details._id %>" class="remove"><span>Remove</span>
+                    </a>
+                </li>
+               <% } %>
+                
+
+           <% }) %>
+        </ul>
+    </div>
+</div>
+
+    
+</body>
+</html>

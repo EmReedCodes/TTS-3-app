@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+  <title>Todo App</title>
+  <link rel="stylesheet" href="/public/style.css" type="text/css" />
+
+</head>
+<body>
+  <div>
+    <h2>Word Bank</h2>
+  
+
+    <div class="todo">
+      <form action="/" method="POST">
+        <input type="text" name="content" id="content" />
+        <button type="submit" class="talk-btn">Submit</button>
+      </form>
+      <ul>
+        <% wordBank.forEach(details => { %>
+        <li>
+            <!-- details.content is the word being posted and sent to db -->
+            <!-- can add the edit and delete function just want basics to work -->
+          <div><%= details.content %></div>
+          <a href="/edit/<%= details._id %>" class="edit">
+            <span>Edit</span>
+          </a>
+          <a href="/remove/<%= details._id %>" class="remove">
+            <span>Remove</span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+
+
+</body>
