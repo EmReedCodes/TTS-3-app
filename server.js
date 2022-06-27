@@ -71,8 +71,9 @@ mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true}, () => {
 //setting views
 app.set('view engine', 'ejs');
 
+
 //need to see our data
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     WordBank.find({}, (err,tasks) => {
         //templating variable wordBank : tasks
         res.render('index.ejs', {wordBank: tasks})
