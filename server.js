@@ -1,41 +1,3 @@
-// const express = require('express')
-// const app = express()
-// const cors = require('cors')
-// const mongoose = require('mongoose')
-// //const PORT = 8010
-// // const MongoClient = require('mongodb').MongoClient
-// dotenv.config()
-
-
-
-// //public is where it goes to get what we need ie css if anyone accesses base/path
-// app.use(express.static('public'))
-// //helping us handle urls
-// app.use(express.urlencoded({extended:true}))
-
-// app.set('view engine', 'ejs')
-// //will allow us to read the data that has been parsed
-// app.use(express.json())
-// //cross-origin resource sharing 
-// app.use(cors())
-
-// // let db,
-// //     dbConnectionString = process.env.DB_STRING,
-// //     dbName = 'text-to-speech',
-// //     collection 
-
-// // MongoClient.connect(dbConnectionString)
-// //     .then(client => {
-// //         console.log('Connected to Database')
-// //         db = client.db(dbName)
-// //         collection = db.collection('tts-word-bank')
-// //     })
-// mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true}, () => {
-//     console.log('Connected to db!')
-// //replaced app.listen here so our server will only run after the connection is made to our DB
-//     app.listen(3005, () => console.log('server is up and running'))
-// })
-
 const express = require('express')
 const app = express()
  const cors = require('cors')
@@ -80,6 +42,22 @@ app.get('/', async (req, res) => {
     })
     
 })
+//didnt work trying to get an endpoint
+// //get them into an array for an api????
+// app.get('/api/:wordbanks' , (req, res) => {
+//     const wbRequest = req.params.wordbanks
+//     infoCollection.find({name: wbRequest}).toArray()
+//     .then(results => {
+//         console.log(results) 
+//         res.json(results[0])//we will need to respond so our API can use it (with json)
+//     })
+//     .catch(error => console.log(error))
+//     // if(outlander[outlanderReq]){ //need to look in db instead
+//     //     res.json(outlander[outlanderReq])
+//     // }else{
+//     //     res.json(outlander['Landed in the wrong century'])
+//     // }
+//     })
 
 app.post('/', async (req, res) => {
     const wordBank = new WordBank({
