@@ -38,7 +38,7 @@
 
 const express = require('express')
 const app = express()
-// const cors = require('cors')
+ const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
@@ -53,6 +53,10 @@ dotenv.config()
 app.use('/static', express.static('public'));
 
 app.use(express.urlencoded({extended: true}));
+
+app.use(express.json())
+
+app.use(cors())
 
 
 
