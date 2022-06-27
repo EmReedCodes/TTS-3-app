@@ -64,7 +64,7 @@ app.use(cors())
 mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true}, () => {
     console.log('Connected to db!')
 //replaced app.listen here so our server will only run after the connection is made to our DB
-    app.listen(8010, () => console.log('server is up and running'))
+    app.listen(process.env.PORT || PORT, () => console.log('server is up and running'))
 })
 
 //'WordBank', wordBankSchema
