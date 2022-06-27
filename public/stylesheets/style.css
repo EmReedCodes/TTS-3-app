@@ -1,5 +1,13 @@
 /* this isnt connected yet */
 
 body{
-    background-color: green;
+    background-color: rgb(123, 218, 213);
+}
+
+.bankBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    
 }
