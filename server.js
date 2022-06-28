@@ -42,25 +42,23 @@ app.get('/', async (req, res) => {
     })
     
 })
-//didnt work trying to get an endpoint
-// //get them into an array for an api????
-// app.get('/api/:wordbanks' , (req, res) => {
-//     const wbRequest = req.params.wordbanks
-//     infoCollection.find({name: wbRequest}).toArray()
-//     .then(results => {
-//         console.log(results) 
-//         res.json(results[0])//we will need to respond so our API can use it (with json)
-//     })
-//     .catch(error => console.log(error))
-//     // if(outlander[outlanderReq]){ //need to look in db instead
-//     //     res.json(outlander[outlanderReq])
-//     // }else{
-//     //     res.json(outlander['Landed in the wrong century'])
-//     // }
-//     })
+
+//adding endpoint with my data so I can fetch it back ?
+app.get("/words", async (request, response) => {
+    const words = await WordBank.find({});
+  
+    try {
+      response.send(words);
+    } catch (error) {
+      response.status(500).send(error);
+    }
+  });
+
 
 app.post('/', async (req, res) => {
+    //yo save that input to muh bank
     const wordBank = new WordBank({
+        //yo gimme dat input
         content: req.body.content
     });
     try{
@@ -79,7 +77,8 @@ app
     //going to my models 
     WordBank.find({}, (err, tasks) => {
     //id Task is id in ejs ? so its finding that in the db
-        res.render('editbank.ejs', {todoTasks: tasks, idTask: id});
+    //the wordBank is how Ill grab it in ejs
+        res.render('editbank.ejs', {wordBank: tasks, idTask: id});
     });
 })
 .post((req, res) => {
@@ -90,6 +89,7 @@ app
         res.redirect('/');
     });
 });
+
 
 //DELETE
 
@@ -102,12 +102,3 @@ app.route('/remove/:id').get((req, res) => {
 });
 
 
-
-
-
-
-
-// //port 8004
-// app.listen(process.env.PORT || PORT, () => {
-//     console.log(`Server is running on port 8007`)
-// })

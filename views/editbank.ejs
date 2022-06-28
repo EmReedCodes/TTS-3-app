@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
+    <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script>
     <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
   
 </head>
@@ -23,9 +24,10 @@
 
         <ul>
             <!-- method on same object. different tasks. this one grabbing id  -->
-            <% todoTasks.forEach(details => { %>
+            <% wordBank.forEach(details => { %>
                 <% if (details._id == idTask) { %>
                 <li>
+                    <!-- form to go to the edit route and get id -->
                     <form action="/edit/<%= details._id %>" method="POST">
                         <input type="text" value="<%= details.content %>" name="content">
                         <button type="submit">Confirm</button>

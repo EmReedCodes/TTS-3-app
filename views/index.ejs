@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Word Bank</title>
+  <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script>
   <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
 
 </head>
@@ -17,6 +18,7 @@
       </form>
       <ul>
         <% wordBank.forEach(details => { %>
+          <!-- creating an LI for each instance -->
         <li>
             <!-- details.content is the word being posted and sent to db -->
             <!-- can add the edit and delete function just want basics to work -->
@@ -30,6 +32,10 @@
         </li>
         <% }) %>
       </ul>
+    </div>
+
+    <div class="repeatBox">
+      <a href="" class="sayWord">
     </div>
   </div>
 
