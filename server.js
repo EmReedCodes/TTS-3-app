@@ -48,7 +48,7 @@ app.get("/api/foo", (req, res) => {
     }
   })
 })
-TODO
+
 //passing a header from client to server 
 //input.type.date
 // then filter data by date that was passed
