@@ -57,7 +57,7 @@ app.get("/api/foo", (req, res) => {
 //input.type.date
 // then filter data by date that was passed
 
-//this was harder than I expected thanks Octo lol 
+// TODO figure out how to pass a header ? 
 
 // app.get("/api/:findDate",  (req, res) => {
 //   let date = req.params.findDate

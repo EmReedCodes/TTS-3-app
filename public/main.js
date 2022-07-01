@@ -1,3 +1,4 @@
+// TODO; look into browserify so I can import npm modules to client side
 
 
 fetch('http://localhost:8010/api/foo')
@@ -16,6 +17,9 @@ fetch('http://localhost:8010/api/july17')
         console.log(item.date)
     })
 })
+
+//confirmed tts does work now need to make it with the input from foo instead
+
 
 const textInputField = document.querySelector("#text-input")
 const form = document.querySelector("#form")
@@ -40,6 +44,4 @@ function run (){
         synth.speak(utterThis)
         textInputField.value = ""
 }
-
-//now that I've brought back my word bank content I need to math.random and display them in ejs or here? 
 
