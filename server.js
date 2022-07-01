@@ -3,6 +3,7 @@ const app = express()
 const cors = require("cors")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
+ const speech = require('speak-tts')
 
 //models
 const WordBank = require("./models/WordBank")
@@ -11,6 +12,8 @@ const { TopologyDescription } = require("mongodb")
 dotenv.config()
 
 //static files
+
+
 
 app.use("/static", express.static("public"))
 
@@ -39,6 +42,7 @@ app.get("/", async (req, res) => {
   })
 })
 
+//bringing back my data to send to client side
 app.get("/api/foo", (req, res) => {
   let word = WordBank.find({ type: String }, (error, found) => {
     if (error) {
@@ -53,6 +57,23 @@ app.get("/api/foo", (req, res) => {
 //input.type.date
 // then filter data by date that was passed
 
+//this was harder than I expected thanks Octo lol 
+
+// app.get("/api/:findDate",  (req, res) => {
+//   let date = req.params.findDate
+//   let find = WordBank.find({}, (err, found) => {
+//     if(err){
+//       console.warn(err)
+//     }else{
+//       let parseDate = Date.parse(date) //changing inputted date over so it can match
+//       res.send(found)
+      
+//     }
+//   })
+//   // console.log(date)
+// })
+
+//testing for finding dates to send to client
 app.get("/api/july17", (req, res) => {
   let found = WordBank.find({}, (err, found) => {
     if (err) {

@@ -1,3 +1,5 @@
+
+
 fetch('http://localhost:8010/api/foo')
 .then((res) => res.json())
 .then(data => {
@@ -14,13 +16,9 @@ fetch('http://localhost:8010/api/july17')
         console.log(item.date)
     })
 })
-//now that I've brought back my word bank content I need to math.random and display them in ejs or here? 
 
-
-// 'speechSynthesis' in window ? console.log("Web Speech API supported!") : console.log("Web Speech API not supported :-(")
-
-// const textInputField = document.querySelector("#text-input")
-// const form = document.querySelector("#form")
+const textInputField = document.querySelector("#text-input")
+const form = document.querySelector("#form")
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
 let ourText = ""
@@ -33,10 +31,15 @@ const checkBrowserCompatibility = () => {
 
 checkBrowserCompatibility()
 
-// form.onsubmit = (event) => {
-//   event.preventDefault()
-//   ourText = textInputField.value
-//   utterThis.text = ourText
-//   synth.speak(utterThis)
-//   textInputField.value = ""
-// }
+
+document.getElementById('form').addEventListener('click', run)
+
+function run (){
+    ourText = textInputField.value
+      utterThis.text = ourText
+        synth.speak(utterThis)
+        textInputField.value = ""
+}
+
+//now that I've brought back my word bank content I need to math.random and display them in ejs or here? 
+

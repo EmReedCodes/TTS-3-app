@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <head>
   <title>Word Bank</title>
-  <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script> -->
   <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
-<script src="/static/main.js"></script>
+
 </head>
 <body>
   <div>
     
   <div class="holdBoth">
-    <div class="repeatRight">
+    <div class="wrapper">
+      <h1>JavaScript Text-to-Speech App</h1>
+      <form id="form">
+        <input type="text" id="text-input" placeholder="Enter Text" />
+        <button type="submit" id="submit-button">Submit</button>
+      </form>
     </div>
+
+      <!-- <form action="/:findDate/">
+        <input type="text" placeholder="09-25-89" name="date">
+      <button type="submit">Get Date</button>
+      </form> -->
+    </div>
+    
 
 
     <div class="bankBox">
@@ -38,5 +50,5 @@
     </div>
   </div>
 </div>
-
+<script src="/static/main.js"></script>
 </body>
