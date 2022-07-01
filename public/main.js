@@ -27,38 +27,8 @@
 //         console.log(item.date)
 //     })
 // })
-let content
-document.querySelector('.wordRepeat').addEventListener('click', runRequest)
 
-
-async function runRequest(){
-    try {
-        const response = await fetch('/api/foo')
-        const data = await response.json()
-        console.log(data)
-        const index = Math.floor(Math.random() * data.length)
-        content = data[index].content
-        // console.log(content)
-        
-
-    } catch(error) {
-        console.warn(error)
-    }
-}
-console.log(content)
-
-
-//randomWord = getContent[Math.floor(Math.random() * getContent.length)]
-
-
-//confirmed tts does work now need to make it with the input from foo instead
-
-// let randomWord = wordData[Math.floor(Math.random() * wordData.length)]
-
-// console.log(randomWord)
-
-
-const textField = document.querySelector(".word")
+// const textField = document.querySelector(".word")
 const form = document.querySelector("#form")
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -71,6 +41,33 @@ const checkBrowserCompatibility = () => {
 }
 
 checkBrowserCompatibility()
+
+let content
+document.querySelector('.wordRepeat').addEventListener('click', runRequest)
+
+
+async function runRequest(){
+    try {
+        const response = await fetch('/api/foo')
+        const data = await response.json()
+        console.log(data)
+        const index = Math.floor(Math.random() * data.length)
+        content = data[index].content
+        document.querySelector('.word').innerText = content
+        console.log(content)
+        // ourText = textField.value
+        utterThis.text = content
+        synth.speak(utterThis)
+        content.value = ""
+
+    } catch(error) {
+        console.warn(error)
+    }
+}
+
+
+
+
 
 
 // document.querySelector('.wordRepeat').addEventListener('click', run)

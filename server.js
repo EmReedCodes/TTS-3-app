@@ -49,7 +49,8 @@ app.get("/api/foo", (req, res) => {
     if (error) {
       console.warn(error)
     } else {
-      res.send(found) //why was this found?
+      // res.send(found)
+      res.send(found)
     }
   })
 })
@@ -75,23 +76,23 @@ app.get("/api/foo", (req, res) => {
 // })
 
 //testing for finding dates to send to client
-app.get("/api/july17", (req, res) => {
-  let found = WordBank.find({}, (err, found) => {
-    if (err) {
-      console.warn(err)
-    } else {
-      let July17 = new Date(Date.parse("06-27-2022"))
-      let items = found.filter(item => {
-        let date = new Date(Date.parse(item.date))
-        return date > July17
-      })
-      res.send(items)
-    }
-  })
+// app.get("/api/july17", (req, res) => {
+//   let found = WordBank.find({}, (err, found) => {
+//     if (err) {
+//       console.warn(err)
+//     } else {
+//       let July17 = new Date(Date.parse("06-27-2022"))
+//       let items = found.filter(item => {
+//         let date = new Date(Date.parse(item.date))
+//         return date > July17
+//       })
+//       res.send(items)
+//     }
+//   })
 
-})
+// })
 
-
+//saving new input 
 app.post("/", async (req, res) => {
   //yo save that input to muh bank
   const wordBank = new WordBank({
@@ -107,16 +108,18 @@ app.post("/", async (req, res) => {
 })
 
 app
+//editing the input
   .route("/edit/:id")
   .get((req, res) => {
     const id = req.params.id
-    //going to my models
+    //going to my models because my form in ejs is 
     WordBank.find({}, (err, tasks) => {
       //id Task is id in ejs ? so its finding that in the db
       //the wordBank is how Ill grab it in ejs
       res.render("editbank.ejs", { wordBank: tasks, idTask: id })
     })
   })
+  //on that same route we are now updating that inputted word
   .post((req, res) => {
     const id = req.params.id
 
@@ -127,7 +130,6 @@ app
   })
 
 //DELETE
-
 app.route("/remove/:id").get((req, res) => {
   const id = req.params.id
   WordBank.findByIdAndRemove(id, err => {
