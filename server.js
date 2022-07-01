@@ -44,11 +44,12 @@ app.get("/", async (req, res) => {
 
 //bringing back my data to send to client side
 app.get("/api/foo", (req, res) => {
-  let word = WordBank.find({ type: String }, (error, found) => {
+  //changed from type : String 
+  let word = WordBank.find({}, (error, found) => {
     if (error) {
       console.warn(error)
     } else {
-      res.send(found)
+      res.send(found) //why was this found?
     }
   })
 })
