@@ -65,17 +65,18 @@ async function runRequest(){
     }
 }
 
+// const rate = document.querySelector('.wordRate')
 
+// document.querySelector('.wordRate').addEventListener('click', runRepeat)
 
-
-
-
-// document.querySelector('.wordRepeat').addEventListener('click', run)
-
-// function run (){
-//     ourText = textField.value
-//       utterThis.text = ourText
-//         synth.speak(utterThis)
-//         textField.value = ""
+// function runRepeat(){
+//     if (synth.speaking) {
+//         synth.cancel();
+//       }
+//       utterThis = new SpeechSynthesisUtterance(text.textContent);
+//       utterThis.addEventListener('error', () => {
+//         console.error('SpeechSynthesisUtterance error');
+//       });
+//       utterThis.rate = rate.value;
+//       synth.speak(utterThis);
 // }
-
