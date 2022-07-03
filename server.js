@@ -3,7 +3,7 @@ const app = express()
 const cors = require("cors")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
- const speech = require('speak-tts')
+
 
 //models
 const WordBank = require("./models/WordBank")
@@ -58,6 +58,9 @@ app.get("/api/foo", (req, res) => {
 //passing a header from client to server 
 //input.type.date
 // then filter data by date that was passed
+
+
+//in postman bringing back header usually a body containing json 
 
 // TODO figure out how to pass a header ? 
 
