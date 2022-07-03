@@ -1,92 +1,92 @@
+/* If you like my buttons check out where I found them :)
+https://codepen.io/tmrDevelops/pen/VeRvKX  */
+
 body {
-    min-height: 100vh;
-    background-color: #206A5D;
-    font-family: 'Lexend', sans-serif;
-    color: #FFCC29;
+  min-height: 100vh;
+  background-color: #206a5d;
+  font-family: "Lexend", sans-serif;
+  color: #ffcc29;
 }
 
 .holdBoth {
-    display: flex;
-    margin-top: 10em;
-
+  display: flex;
+  margin-top: 10em;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .doubleColumn {
-    display: flex;
-    flex-direction: column;
-    /* flex-basis: 100%; */
-    flex: 2
+  display: flex;
+  flex-direction: column;
+  /* flex-basis: 100%; */
+  flex: 2;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    /* flex-basis: 100%; */
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* flex-basis: 100%; */
+  flex: 1;
 }
 
 .repeatBox {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .bankBox {
-    align-items: center;
-
+  align-items: center;
 }
 
 .word {
+  font-size: 5rem;
+}
 
-    font-size: 5rem;
+h2 {
+  text-align: center;
+  font-size: 2rem;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 button,
 input {
+  align-self: center;
+  background: transparent;
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.5rem;
+  transition: all 0.5s ease;
+  color: #81b214;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px;
+  background-color: hsla(0, 0%, 0%, 0.2);
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
 
-    align-self: center;
-    background: transparent;
-    padding: .5rem .5rem;
-    margin: 0 .5rem;
-    transition: all .5s ease;
-    color: #81B214;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    outline: none;
-    box-shadow: 20px 38px 34px -26px;
-    background-color: hsla(0, 0%, 0%, .2);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    border: solid 7px #F58634;
-    /*
-      Above is shorthand for:
-      border-top-left-radius: 255px 15px;
-      border-top-right-radius: 15px 225px;
-      border-bottom-right-radius: 225px 15px;
-      border-bottom-left-radius:15px 255px;
-      */
-
+  border: solid 7px #f58634;
 }
 
 button:hover {
-    box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, .3);
-    background-color: hsla(0, 0%, 0%, .3);
-    background-color: hsla(0, 0%, 0%, .3);
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 span {
-    color: #81B214;
+  color: #81b214;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }

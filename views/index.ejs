@@ -4,20 +4,23 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script> -->
   <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/ddd77854d8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+
   <div class="holdBoth">
     <div class="row">
       <div class="repeatBox doubleColumn">
         <div class="word">Hit Next To Begin</div>
         <div class="buttonGrp">
           <button type="submit" class="wordNew">Next</button>
-          <button type="submit" class="wordRepeat">Replay</button>
-          <button class="wordRate">Speed</button>
+          <!-- <button type="submit" class="wordRepeat">Replay</button> -->
+          <button class="wordRate">Repeat</button>
           <input
             type="range"
             min="0.1"
-            max="5"
+            max="10"
             value="1"
             step="0.1"
             class="slider"
@@ -31,7 +34,7 @@
           <h2>Word Bank</h2>
           <form action="/" method="POST">
             <input type="text" name="content" id="content" />
-            <button type="submit" class="talk-btn">Submit</button>
+            <button type="submit">Submit</button>
           </form>
         </div>
         <div class="editWords">
@@ -43,10 +46,10 @@
               <!-- can add the edit and delete function just want basics to work -->
               <div><%= details.content %></div>
               <a href="/edit/<%= details._id %>" class="edit">
-                <span>Edit</span>
+                <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
               </a>
               <a href="/remove/<%= details._id %>" class="remove">
-                <span>Remove</span>
+                <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
               </a>
             </li>
             <% }) %>

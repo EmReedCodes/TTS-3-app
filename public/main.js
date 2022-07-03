@@ -74,10 +74,11 @@ runRequest().then(() => {
   console.log(bankData)
 })
 
-function repeatValue() {
-  synth.speak(utterThis)
-}
-document.querySelector(".wordRepeat").addEventListener("click", repeatValue)
+//didnt need this whoops
+// function repeatValue() {
+//   synth.speak(utterThis)
+// }
+// document.querySelector(".wordRepeat").addEventListener("click", repeatValue)
 
 function updateSpeachRate(event) {
   //
