@@ -1,6 +1,5 @@
 //TTS //https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/
 
-
 // TODO; look into browserify so I can import npm modules to client side ?
 // let wordData = []
 // let randomWord
@@ -14,9 +13,8 @@
 //         //wordData.push(item.content)
 //         //item = item.content
 //     })
-  //  getContent = data.map(item => item.content)
+//  getContent = data.map(item => item.content)
 //   console.log(getContent)
-  
 
 // })
 // console.log(getContent)
@@ -46,66 +44,65 @@ const checkBrowserCompatibility = () => {
 checkBrowserCompatibility()
 
 // let content
- document.querySelector('.wordNew').addEventListener('click', runRequest)
- let bankData
+document.querySelector(".wordNew").addEventListener("click", runRequest)
+let bankData
 
-async function runRequest(){
-    try {
-        const response = await fetch('/api/foo')
-        const data = await response.json()
-        console.log(data)
-        bankData = data
+async function runRequest() {
+  try {
+    const response = await fetch("/api/foo")
+    const data = await response.json()
+    console.log(data)
+    bankData = data
 
-        // get random word from the list.
-        const index = Math.floor(Math.random() * bankData.length)
-        content = data[index].content
-        document.querySelector('.word').innerText = content
-        console.log(content)
-        // ourText = textField.value
-        utterThis.text = content
-        synth.speak(utterThis)
-        content.value = ""
-
-    } catch(error) {
-        console.warn(error)
-    }
+    // get random word from the list.
+    const index = Math.floor(Math.random() * bankData.length)
+    content = data[index].content
+    document.querySelector(".word").innerText = content
+    console.log(content)
+    // ourText = textField.value
+    utterThis.text = content
+    synth.speak(utterThis)
+    content.value = ""
+  } catch (error) {
+    console.warn(error)
+  }
 }
 //go refetch the data
 //callback to get data
-//do an undefined check 
+//do an undefined check
 runRequest().then(() => {
-    console.log(bankData)
+  console.log(bankData)
 })
 
-function repeatValue(){
-    synth.speak(utterThis)
+function repeatValue() {
+  synth.speak(utterThis)
 }
-document.querySelector('.wordRepeat').addEventListener('click', repeatValue)
+document.querySelector(".wordRepeat").addEventListener("click", repeatValue)
 
 function updateSpeachRate(event) {
-    //
-    console.log(event.target.value);
-    utterThis.rate = rate.value;
+  //
+  console.log(event.target.value)
+  utterThis.rate = rate.value
 }
 //my slide button
-const rate = document.querySelector('#SpeachRateSlider')
+const rate = document.querySelector("#SpeachRateSlider")
 //go on slider click
-rate.addEventListener('change', updateSpeachRate);
+rate.addEventListener("change", updateSpeachRate)
 
-document.querySelector('.wordRate').addEventListener('click', runRepeat)
+document.querySelector(".wordRate").addEventListener("click", runRepeat)
 
-function runRepeat(){
-    if (utterThis.text == null || utterThis.text == undefined){
-        console.warn("No Word Selected!");
-        return
-    }
-    if (synth.speaking) {
-        synth.cancel();
-      }
-     
-      utterThis.addEventListener('error', () => {
-        console.error('SpeechSynthesisUtterance error');
-      });
-      utterThis.rate = rate.value;
-      synth.speak(utterThis);
+function runRepeat() {
+  if (utterThis.text == null || utterThis.text == undefined) {
+    console.warn("No Word Selected!")
+    return
+  }
+  if (synth.speaking) {
+    synth.cancel()
+  }
+
+  utterThis.addEventListener("error", () => {
+    console.error("SpeechSynthesisUtterance error")
+  })
+  utterThis.rate = rate.value
+  synth.speak(utterThis)
 }

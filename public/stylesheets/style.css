@@ -1,14 +1,14 @@
-
-
-body{
+body {
     min-height: 100vh;
-    background-color: rgb(123, 218, 213);
+    background-color: #206A5D;
+    font-family: 'Lexend', sans-serif;
+    color: #FFCC29;
 }
 
 .holdBoth {
     display: flex;
     margin-top: 10em;
-    
+
 }
 
 .row {
@@ -16,23 +16,23 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-  }
+}
 
-  .doubleColumn {
+.doubleColumn {
     display: flex;
     flex-direction: column;
     /* flex-basis: 100%; */
     flex: 2
-  }
+}
 
-  .column {
+.column {
     display: flex;
     flex-direction: column;
     /* flex-basis: 100%; */
     flex: 1;
-  }
+}
 
- .repeatBox{
+.repeatBox {
     align-items: center;
     justify-content: center;
 }
@@ -40,4 +40,53 @@ body{
 .bankBox {
     align-items: center;
 
-} 
+}
+
+.word {
+
+    font-size: 5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input {
+
+    align-self: center;
+    background: transparent;
+    padding: .5rem .5rem;
+    margin: 0 .5rem;
+    transition: all .5s ease;
+    color: #81B214;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    outline: none;
+    box-shadow: 20px 38px 34px -26px;
+    background-color: hsla(0, 0%, 0%, .2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: solid 7px #F58634;
+    /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+
+}
+
+button:hover {
+    box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, .3);
+    background-color: hsla(0, 0%, 0%, .3);
+    background-color: hsla(0, 0%, 0%, .3);
+}
+
+span {
+    color: #81B214;
+}
+
+a {
+    text-decoration: none;
+}

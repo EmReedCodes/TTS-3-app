@@ -2,61 +2,59 @@
 <head>
   <title>Word Bank</title>
   <!-- <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script> -->
-  <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
-
+  <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-    
   <div class="holdBoth">
     <div class="row">
+      <div class="repeatBox doubleColumn">
+        <div class="word">Hit Next To Begin</div>
+        <div class="buttonGrp">
+          <button type="submit" class="wordNew">Next</button>
+          <button type="submit" class="wordRepeat">Replay</button>
+          <button class="wordRate">Speed</button>
+          <input
+            type="range"
+            min="0.1"
+            max="5"
+            value="1"
+            step="0.1"
+            class="slider"
+            id="SpeachRateSlider"
+          />
+        </div>
+      </div>
 
-    <div class="repeatBox doubleColumn">
-      <div class="word">New</div>
-      <div class="buttonGrp">
-      <button type="submit" class="wordNew">New</button>
-      <button type="submit" class="wordRepeat">Replay</button>
-        <button class="wordRate">Speed</button>
-      <input type="range" min="0.1" max="5" value="1" step="0.1" class="slider" id="SpeachRateSlider">
-
-    </div>
- 
-    </div>
-
- 
-    
-
-
-    <div class="bankBox column">
-      <div class="inputWords">
-      <h2>Word Bank</h2>
-      <form action="/" method="POST">
-        <input type="text" name="content" id="content" />
-        <button type="submit" class="talk-btn">Submit</button>
-      </form>
-    </div>
-    <div class="editWords">
-      <ul>
-        <% wordBank.forEach(details => { %>
-          <!-- creating an LI for each instance -->
-        <li>
-            <!-- details.content is the word being posted and sent to db -->
-            <!-- can add the edit and delete function just want basics to work -->
-          <div><%= details.content %></div>
-          <a href="/edit/<%= details._id %>" class="edit">
-            <span>Edit</span>
-          </a>
-          <a href="/remove/<%= details._id %>" class="remove">
-            <span>Remove</span>
-          </a>
-        </li>
-        <% }) %>
-      </ul>
+      <div class="bankBox column">
+        <div class="inputWords">
+          <h2>Word Bank</h2>
+          <form action="/" method="POST">
+            <input type="text" name="content" id="content" />
+            <button type="submit" class="talk-btn">Submit</button>
+          </form>
+        </div>
+        <div class="editWords">
+          <ul>
+            <% wordBank.forEach(details => { %>
+            <!-- creating an LI for each instance -->
+            <li>
+              <!-- details.content is the word being posted and sent to db -->
+              <!-- can add the edit and delete function just want basics to work -->
+              <div><%= details.content %></div>
+              <a href="/edit/<%= details._id %>" class="edit">
+                <span>Edit</span>
+              </a>
+              <a href="/remove/<%= details._id %>" class="remove">
+                <span>Remove</span>
+              </a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-  </div>
 
-
-<script src="/static/main.js"></script>
+  <script src="/static/main.js"></script>
 </body>
