@@ -7,17 +7,37 @@ body{
 
 .holdBoth {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.repeatBox{
-    /* flex-direction: column; */
+    margin-top: 10em;
     
 }
 
-.bankBox{
+.row {
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .doubleColumn {
+    display: flex;
+    flex-direction: column;
+    /* flex-basis: 100%; */
+    flex: 2
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    /* flex-basis: 100%; */
+    flex: 1;
+  }
+
+ .repeatBox{
+    align-items: center;
+    justify-content: center;
+}
+
+.bankBox {
+    align-items: center;
 
 } 
