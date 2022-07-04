@@ -28,8 +28,7 @@
 //     })
 // })
 
-// const textField = document.querySelector(".word")
-const form = document.querySelector("#form")
+
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -44,7 +43,7 @@ const checkBrowserCompatibility = () => {
 checkBrowserCompatibility()
 
 // let content
-document.querySelector(".wordNew").addEventListener("click", runRequest)
+document.querySelector(".wordNew").addEventListener("click", runRequest, false)
 let bankData
 
 async function runRequest() {
@@ -59,10 +58,9 @@ async function runRequest() {
     content = data[index].content
     document.querySelector(".word").innerText = content
     console.log(content)
-    // ourText = textField.value
     utterThis.text = content
     synth.speak(utterThis)
-    content.value = ""
+   content.value = ""
   } catch (error) {
     console.warn(error)
   }

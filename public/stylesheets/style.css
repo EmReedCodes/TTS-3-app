@@ -1,8 +1,13 @@
 /* If you like my buttons check out where I found them :)
-https://codepen.io/tmrDevelops/pen/VeRvKX  */
+ https://codepen.io/tmrDevelops/pen/VeRvKX   */
 
-body {
-  min-height: 100vh;
+ *{
+  box-sizing: border-box;
+ }
+
+ body {
+  /* min-height: 100vh; */
+  min-height: calc(100vh);
   background-color: #206a5d;
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
@@ -10,7 +15,10 @@ body {
 
 .holdBoth {
   display: flex;
-  margin-top: 10em;
+  /* margin-top: 10em; */
+  padding-top: 10em;
+  align-items: center;
+
 }
 
 .row {
@@ -23,28 +31,30 @@ body {
 .doubleColumn {
   display: flex;
   flex-direction: column;
-  /* flex-basis: 100%; */
-  flex: 2;
+  /* changed below to make room for confirm/cancel */
+   flex: 1.5;
 }
 
 .column {
   display: flex;
-  flex-direction: column;
-  /* flex-basis: 100%; */
-  flex: 1;
+  flex-direction: column;  
+   flex-basis: 100%; 
+   flex: 1;
 }
 
 .repeatBox {
+  padding-top: 10em;
   align-items: center;
   justify-content: center;
 }
-
+/* 
 .bankBox {
   align-items: center;
-}
+} */
 
 .word {
   font-size: 5rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
@@ -54,6 +64,8 @@ h2 {
 
 ul {
   list-style: none;
+  padding: 0;
+  width: 100%;
 }
 
 button,
@@ -85,8 +97,92 @@ button:hover {
 
 span {
   color: #81b214;
+  cursor:pointer;
 }
+
+
 
 a {
   text-decoration: none;
+  color: #81b214;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    margin-top: -5px;
+    border-radius: 50%;
+   }
+   
+   input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    margin-top: -5px;
+    border-radius: 50%;
+   } 
+.editBank {
+  border: solid 4px #f58634;
+}
+.editBank:focus {
+  outline: none;
+}
+/* trying to fix below, didnt work*/
+/* one main fix doublecolumn to column in editBank */
+
+ .bankList {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.bankList form {
+  width: 50%;
+  display: flex;
+}
+
+.bankList input {
+  flex-grow: 2;
+  margin-right: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.bankList button {
+  cursor: pointer;
+}
+
+.bankList .cancel {
+  cursor: pointer;
+  text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: #81b214;
+}
+/* flex grow moving icons to the right */
+.bankList div {
+  flex-grow: 1;
+}
+
+.bankList .edit {
+  cursor: pointer;
+  margin-right: 10px;
+} 
+
+.bankList .remove {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.confirmBtn {
+  border: solid 4px #f58634;
+}
+
+.editWords {
+  width: 85%;
+}
+

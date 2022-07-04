@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/offline-tts@1.1.4/index.min.js"></script> -->
-    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
-  
-</head>
-<!-- An integrity attribute is used to allow the browser to check the file source to ensure that the code is never loaded if the source has been manipulated. Crossorigin attribute is present when a request is loaded using 'CORS' which is now a requirement of SRI checking when not loaded from the 'same-origin'. -->
-<body>
-<div class="todo-container">
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Bank</title>
+    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/ddd77854d8.js" crossorigin="anonymous"></script>
+  </head>
+  <!-- editbank -->
+  <body>
+    <div class="holdBoth">
+      <div class="row">
+        <div class="repeatBox doubleColumn">
+          <div class="word">Hit Next To Begin</div>
+          <div class="buttonGrp">
+            <button type="submit" class="wordNew">Next</button>
+            <button class="wordRate">Repeat</button>
+            <input
+              type="range"
+              min="0.1"
+              max="10"
+              value="1"
+              step="0.1"
+              class="slider"
+              id="SpeachRateSlider"
+            />
+          </div>
+        </div>
 
-    <div class="bankBox">
-        <h2>To-Do List</h2>
-        <!-- operating on the same form from todo.ejs -->
-        <form action="" method="POST"> 
-        <input type="text" name="content">
-        <button type="submit">Submit</button>    
-        </form>
+        <div class="bankBox column">
+          
+            <h2>Word Bank</h2>
+            <!-- operating on the same form from todo.ejs -->
+            <form action="" method="POST" class="bankHeader">
+              <input type="text" name="content" />
+              <button type="submit">Submit</button>
+            </form>
+          
+          <div class="editWords">
+            <ul>
+              <!-- method on same object. different tasks. this one grabbing id  -->
+              <% wordBank.forEach(details => { %> <% if (details._id == idTask) { %>
+              <li bankList>
+                <!-- form to go to the edit route and get id -->
+                <form action="/edit/<%= details._id %>" method="POST">
+                  <input type="text" value="<%= details.content %>" name="content" class="editBank"/>
+                  <button type="submit" class="confirmBtn" >Confirm</button>
+                  <button type="submit" class="confirmBtn">
+                  <a href="/" class="cancel">Cancel</a>
+                  </button>
+                </form>
+              </li>
 
-        <ul>
-            <!-- method on same object. different tasks. this one grabbing id  -->
-            <% wordBank.forEach(details => { %>
-                <% if (details._id == idTask) { %>
-                <li>
-                    <!-- form to go to the edit route and get id -->
-                    <form action="/edit/<%= details._id %>" method="POST">
-                        <input type="text" value="<%= details.content %>" name="content">
-                        <button type="submit">Confirm</button>
-                        <a href="/" class="cancel">Cancel</a>
-                    </form>
-                </li>
-
-                <% } else { %>
-                <li class="todo-list-item">
-                    <div class="todo-list-item-name"><%= details.content %></div>
-
-                    <a href="/edit/<%= details._id %>" class="edit"><span>Edit</span>
-                    </a>
-
-                    <a href="/remove/<%= details._id %>" class="remove"><span>Remove</span>
-                    </a>
-                </li>
-               <% } %>
-                
-
-           <% }) %>
-        </ul>
+              <% } else { %>
+              <li bankList>
+                <div><%= details.content %></div>
+                <a href="/edit/<%= details._id %>" class="edit">
+                  <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
+                </a>
+                <a href="/remove/<%= details._id %>" class="remove">
+                  <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
+                </a>
+              </li>
+              <% } %> 
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-    
-</body>
+    <script src="/static/main.js"></script>
+  </body>
 </html>
