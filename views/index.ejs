@@ -10,14 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/ddd77854d8.js" crossorigin="anonymous"></script>
 </head>
+
+<!-- <div class="container">
+  <div class="workbank"></div>
+  <div class="speakbank"></div>
+</div> -->
 <body>
-    <div class="holdBoth">
-        <div class="row">
-          <div class="repeatBox doubleColumn">
+    <div class="container holdBoth">
+        
+          <div class="speakbank repeatBox doubleColumn">
             <div class="word">Hit Next To Begin</div>
             <div class="buttonGrp">
-              <button type="submit" class="wordNew">Next</button>
-              <button class="wordRate">Repeat</button>
+              <button type="submit" class="wordNew confirmBtn">Next</button>
+              <button class="wordRate confirmBtn">Repeat</button>
               <input
                 type="range"
                 min="0.1"
@@ -30,12 +35,12 @@
             </div>
           </div>
     
-          <div class="bankBox column">
+          <div class="workbank bankBox column">
             <div class="inputWords">
               <h2>Word Bank</h2>
               <form action="/" method="POST">
                 <input type="text" name="content" id="content" />
-                <button type="submit">Submit</button>
+                <button type="submit" class="confirmBtn">Submit</button>
               </form>
             </div>
             <div class="editWords">
@@ -58,7 +63,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    
     </div>
     
   <script src="/static/main.js"></script>

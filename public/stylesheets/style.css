@@ -1,65 +1,53 @@
-/* If you like my buttons check out where I found them :)
- https://codepen.io/tmrDevelops/pen/VeRvKX   */
-
- *{
+*{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
  }
 
  body {
   /* min-height: 100vh; */
-  min-height: calc(100vh);
+  min-height: calc(100vh - 10em);
   background-color: #206a5d;
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
+  font-size: 62.5%;
+  /* because now 1.4 rem = 14px */
+  /* em unit is relative to the font size of parent element, however, rem is relative 
+to the default font size of the browser.......  */
 }
 
-.holdBoth {
-  display: flex;
-  /* margin-top: 10em; */
+
+/* grid styles */
+
+.container {  display: grid;
+  grid-template-columns: 1fr 0.8fr 1.2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "speakbank speakbank workbank"
+    "speakbank speakbank workbank"
+    ". . .";
+}
+
+.workbank {
+  justify-self: start;
+  grid-area: workbank;
   padding-top: 10em;
-  align-items: center;
-
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.doubleColumn {
-  display: flex;
-  flex-direction: column;
-  /* changed below to make room for confirm/cancel */
-   flex: 1.5;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;  
-   flex-basis: 100%; 
-   flex: 1;
-}
-
-.repeatBox {
+.speakbank {
+  justify-self: center;
+  align-self: end;
+  grid-area: speakbank;
   padding-top: 10em;
-  align-items: center;
-  justify-content: center;
 }
-/* 
-.bankBox {
-  align-items: center;
-} */
 
-.word {
-  font-size: 5rem;
-  margin-bottom: 2rem;
-}
 
 h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
+  padding-bottom: 2rem;
 }
 
 ul {
@@ -68,15 +56,15 @@ ul {
   width: 100%;
 }
 
-button,
+.confirmBtn,
 input {
   align-self: center;
   background: transparent;
   padding: 0.5rem 0.5rem;
-  margin: 0 0.5rem;
+  /* margin: 0 0.5rem; */
   transition: all 0.5s ease;
   color: #81b214;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   outline: none;
   box-shadow: 20px 38px 34px -26px;
@@ -120,69 +108,15 @@ input[type="range"]::-webkit-slider-thumb {
     width: 15px;
     margin-top: -5px;
     border-radius: 50%;
-   } 
-.editBank {
-  border: solid 4px #f58634;
-}
-.editBank:focus {
-  outline: none;
-}
-/* trying to fix below, didnt work*/
-/* one main fix doublecolumn to column in editBank */
+   }
+   
+  .bankList {
+    font-size: 1.2rem;
+  }
+  .confirmBtn {
+    background-color: hsla(0, 0%, 0%, 0.3);
+  }  
 
- .bankList {
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-}
-
-
-.bankList form {
-  width: 50%;
-  display: flex;
-}
-
-.bankList input {
-  flex-grow: 2;
-  margin-right: 20px;
-  border: none;
-  border-radius: 5px;
-}
-
-.bankList button {
-  cursor: pointer;
-}
-
-.bankList .cancel {
-  cursor: pointer;
-  text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    color: #81b214;
-}
-/* flex grow moving icons to the right */
-.bankList div {
-  flex-grow: 1;
-}
-
-.bankList .edit {
-  cursor: pointer;
-  margin-right: 10px;
-} 
-
-.bankList .remove {
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.confirmBtn {
-  border: solid 4px #f58634;
-}
-
-.editWords {
-  width: 85%;
-}
-
+  .word {
+    font-size: 2rem;
+  }

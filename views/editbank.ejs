@@ -11,17 +11,17 @@
   </head>
   <!-- editbank -->
   <body>
-    <div class="holdBoth">
-      <div class="row">
-        <div class="repeatBox doubleColumn">
+    <div class="container holdBoth">
+
+        <div class="speakbank repeatBox doubleColumn">
           <div class="word">Hit Next To Begin</div>
-          <div class="buttonGrp">
-            <button type="submit" class="wordNew">Next</button>
-            <button class="wordRate">Repeat</button>
+          <div class="wordBtns">
+            <button type="submit" class="wordNew confirmBtn">Next</button>
+            <button class="wordRate confirmBtn">Repeat</button>
             <input
               type="range"
               min="0.1"
-              max="10"
+              max="5"
               value="1"
               step="0.1"
               class="slider"
@@ -30,20 +30,20 @@
           </div>
         </div>
 
-        <div class="bankBox column">
+        <div class="workbank bankBox column">
           
             <h2>Word Bank</h2>
             <!-- operating on the same form from todo.ejs -->
             <form action="" method="POST" class="bankHeader">
               <input type="text" name="content" />
-              <button type="submit">Submit</button>
+              <button type="submit confirmBtn" >Submit</button>
             </form>
           
           <div class="editWords">
             <ul>
               <!-- method on same object. different tasks. this one grabbing id  -->
               <% wordBank.forEach(details => { %> <% if (details._id == idTask) { %>
-              <li bankList>
+              <li class="bankList">
                 <!-- form to go to the edit route and get id -->
                 <form action="/edit/<%= details._id %>" method="POST">
                   <input type="text" value="<%= details.content %>" name="content" class="editBank"/>
@@ -55,7 +55,7 @@
               </li>
 
               <% } else { %>
-              <li bankList>
+              <li class="bankList">
                 <div><%= details.content %></div>
                 <a href="/edit/<%= details._id %>" class="edit">
                   <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
@@ -69,7 +69,7 @@
             </ul>
           </div>
         </div>
-      </div>
+     
     </div>
     <script src="/static/main.js"></script>
   </body>

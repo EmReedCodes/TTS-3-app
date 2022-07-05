@@ -39,28 +39,41 @@ const checkBrowserCompatibility = () => {
     ? console.log("Web Speech API supported!")
     : console.log("Web Speech API not supported :-(")
 }
-
+//check if browser is compatiable with above
 checkBrowserCompatibility()
 
 // let content
-document.querySelector(".wordNew").addEventListener("click", runRequest, false)
-let bankData
 
-async function runRequest() {
+
+//if next button clicked go to runRequest
+document.querySelector(".wordNew").addEventListener("click", runRequest)
+
+//storing data from api/foo server fetch
+ let bankData
+
+async function runRequest(event) {
+  //preventing event from running during edit/cancel 
+  event.preventDefault()
   try {
     const response = await fetch("/api/foo")
     const data = await response.json()
-    console.log(data)
-    bankData = data
-
+    // console.log(data)
+     bankData = data
+ 
+    
     // get random word from the list.
     const index = Math.floor(Math.random() * bankData.length)
-    content = data[index].content
-    document.querySelector(".word").innerText = content
-    console.log(content)
-    utterThis.text = content
+    //now store the word with the random index's content
+    let speakWord = bankData[index].content
+    //change the dispalyed word to our random word
+    document.querySelector(".word").innerText = speakWord
+    console.log(speakWord)
+    //now assign speech function to this word
+    utterThis.text = speakWord
+    //speak that word
     synth.speak(utterThis)
-   content.value = ""
+    //reset
+   speakWord.value = ""
   } catch (error) {
     console.warn(error)
   }
@@ -81,6 +94,7 @@ runRequest().then(() => {
 function updateSpeachRate(event) {
   //
   console.log(event.target.value)
+  //if I use slider change that value to my speech function
   utterThis.rate = rate.value
 }
 //my slide button
