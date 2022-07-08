@@ -1,0 +1,77 @@
+@import './_breakpoints.scss';
+
+/*
+ 
+                                         
+                                         
+ oooo    ooo  .oooo.   oooo d8b  .oooo.o 
+  `88.  .8'  `P  )88b  `888""8P d88(  "8 
+   `88..8'    .oP"888   888     `"Y88b.  
+    `888'    d8(  888   888     o.  )88b 
+     `8'     `Y888""8o d888b    8""888P' 
+                                         
+                                         
+                                         
+ 
+*/
+
+//basic colors
+$white: #fff;
+$black: #000;
+
+// flatUI colors
+$midnight:    #2c3e50;
+$asphalt:     #34495e;
+$bulma-black: #4a4a4a;
+$asbestos:    #7f8c8d;
+$concrete:    #95a5a6;
+$silver:      #bdc3c7;
+$clouds:      #ecf0f1;
+$emerald:     #2ecc71;
+$nephritis:   #27ae60;
+$turquoise:   #1abc9c;
+$greensea:    #16a085;
+$amethyst:    #9b59b6;
+$wisteria:    #8e44ad;
+$sunflower:   #f1c40f;
+$orange:      #f39c12;
+$carrot:      #e67e22;
+$pumpkin:     #d35400;
+$alizarin:    #e74c3c;
+$pomegranate: #c0392b;
+$river:       #3498db;
+$belize:      #2980b9;
+
+//MDL box-shadows
+$shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$shadow-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+$shadow-border: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+$inset-shadow-1: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+$inset-shadow-2: inset 0 3px 6px rgba(0,0,0,0.16), inset 0 3px 6px rgba(0,0,0,0.23);
+$inset-shadow-3: inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23);
+$inset-shadow-4: inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22);
+$inset-shadow-5: inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22);
+
+$inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1), inset 0 0 0 1px rgba(10,10,10,.1);
+
+
+/*
+ 
+                    o8o               o8o              
+                    `"'               `"'              
+ ooo. .oo.  .oo.   oooo  oooo    ooo oooo  ooo. .oo.   
+ `888P"Y88bP"Y88b  `888   `88b..8P'  `888  `888P"Y88b  
+  888   888   888   888     Y888'     888   888   888  
+  888   888   888   888   .o8"'88b    888   888   888  
+ o888o o888o o888o o888o o88'   888o o888o o888o o888o 
+*/
+
+@mixin animate {
+  transition: all 0.15s ease-in-out;
+}
+

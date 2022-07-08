@@ -12,7 +12,7 @@
   <!-- editbank -->
   <body>
     <div class="container holdBoth">
-
+      <div class="row">
         <div class="speakbank repeatBox doubleColumn">
           <div class="word">Hit Next To Begin</div>
           <div class="wordBtns">
@@ -57,7 +57,8 @@
               <% } else { %>
               <li class="bankList">
                 <div><%= details.content %></div>
-                <a href="/edit/<%= details._id %>" class="edit">
+                <a onClick="edit(this)" class="edit">
+                <!-- <a href="/edit/<%= details._id %>" class="edit"> -->
                   <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
                 </a>
                 <a href="/remove/<%= details._id %>" class="remove">
@@ -69,7 +70,7 @@
             </ul>
           </div>
         </div>
-     
+      </div>
     </div>
     <script src="/static/main.js"></script>
   </body>

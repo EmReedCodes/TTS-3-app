@@ -28,7 +28,6 @@
 //     })
 // })
 
-
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -44,23 +43,21 @@ checkBrowserCompatibility()
 
 // let content
 
-
 //if next button clicked go to runRequest
 document.querySelector(".wordNew").addEventListener("click", runRequest)
 
 //storing data from api/foo server fetch
- let bankData
+let bankData
 
 async function runRequest(event) {
-  //preventing event from running during edit/cancel 
-  event.preventDefault()
+  //preventing event from running during edit/cancel
+  // event.preventDefault()
   try {
     const response = await fetch("/api/foo")
     const data = await response.json()
     // console.log(data)
-     bankData = data
- 
-    
+    bankData = data
+
     // get random word from the list.
     const index = Math.floor(Math.random() * bankData.length)
     //now store the word with the random index's content
@@ -73,7 +70,7 @@ async function runRequest(event) {
     //speak that word
     synth.speak(utterThis)
     //reset
-   speakWord.value = ""
+    speakWord.value = ""
   } catch (error) {
     console.warn(error)
   }
@@ -119,3 +116,58 @@ function runRepeat() {
   utterThis.rate = rate.value
   synth.speak(utterThis)
 }
+
+//from onclick
+//
+function edit(id) {
+  let parentElm = event.target.closest("li")
+  let contentElm = parentElm.querySelector(".content")
+
+  contentElm.setAttribute("contenteditable", true)
+  parentElm.classList.add("editing")
+}
+
+let foo
+//only show delete after click
+async function save(id) {
+  let parentElm = event.target.closest("li")
+  let contentElm = parentElm.querySelector(".content")
+
+  //where is content stored?
+  let content = contentElm.innerText
+
+  //go to db to store it
+  //declaring async to wait for fetch
+  let rawResponse = await fetch("/save", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id: id, content: content })
+  })
+
+  // everything is good
+  if (rawResponse.status == 200) {
+    parentElm.classList.remove('editing')
+    // extra credit: extract these strings into a string object
+    // sendToast({type: 0, "word saved"})
+    // sendToast({type: 0, strings.wordSaved})
+  
+  } else { // everything is not good
+    console.log(rawResponse)
+  
+    // replace this alert with a toast message: 
+    // https://codepen.io/octoshrimpy/pen/JYPQbo
+    //user wont be able to click 
+    //once clicked flag can go away
+    alert("something went wrong in the server")
+    // sendToast({type: 2, "something went wrong"})
+  }
+
+  // display response appropriately to user
+}
+//if response code 200 
+//then everything is good go ahead remove the class that we added to the parent element 
+
+

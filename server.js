@@ -4,7 +4,6 @@ const cors = require("cors")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 
-
 //models
 const WordBank = require("./models/WordBank")
 const { TopologyDescription } = require("mongodb")
@@ -110,28 +109,31 @@ app.post("/", async (req, res) => {
   }
 })
 
-app
-//editing the input
-  .route("/edit/:id")
-  .get((req, res) => {
-    const id = req.params.id
-    //going to my models because my form in ejs is 
-    WordBank.find({}, (err, tasks) => {
-      //id Task is id in ejs ? so its finding that in the db
-      //the wordBank is how Ill grab it in ejs
-      res.render("editbank.ejs", { wordBank: tasks, idTask: id })
-    })
-  })
-  //on that same route we are now updating that inputted word
+
+
+  app
+  .route("/save")
   .post((req, res) => {
-    const id = req.params.id
 
-    WordBank.findByIdAndUpdate(id, { content: req.body.content }, err => {
-      if (err) return res.send(500, err)
-      res.redirect("/")
+    const id      = req.body.id
+    const content = req.body.content
+
+    WordBank.findByIdAndUpdate(id, { content: content}, err => {
+      if (err) {
+        console.log(err)
+        res.status(400).send(err)
+      } else {
+        res.status(200).send({msg: "a-ok!"})
+      }
     })
   })
+//express deprecated res.send(status, body): Use res.status(status).send(body)
 
+
+  //ill need to update this 
+  //make a post does this exist?
+  //if exists and it equals what im trying to delete 
+  //then go back to client if response 200 remove 
 //DELETE
 app.route("/remove/:id").get((req, res) => {
   const id = req.params.id

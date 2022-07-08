@@ -1,27 +1,13 @@
-/*
+@import "./_octolib.scss";
+
+$bg: #206a5d;
+$bg-light: lighten($bg, 7%);
+$bg-dark: darken($bg, 7%);
+$contrast: #a966a5;
+$contrast-light: lighten($contrast, 7%);
+$contrast-dark: darken($contrast, 7%);
 
 
-
- oooo    ooo  .oooo.   oooo d8b  .oooo.o 
-  `88.  .8'  `P  )88b  `888""8P d88(  "8 
-   `88..8'    .oP"888   888     `"Y88b.  
-    `888'    d8(  888   888     o.  )88b 
-     `8'     `Y888""8o d888b    8""888P' 
-
-
-
-
-*/
-/*
-
-                    o8o               o8o              
-                    `"'               `"'              
- ooo. .oo.  .oo.   oooo  oooo    ooo oooo  ooo. .oo.   
- `888P"Y88bP"Y88b  `888   `88b..8P'  `888  `888P"Y88b  
-  888   888   888   888     Y888'     888   888   888  
-  888   888   888   888   .o8"'88b    888   888   888  
- o888o o888o o888o o888o o88'   888o o888o o888o o888o 
-*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,7 +21,7 @@ html, body {
 }
 
 body {
-  background-color: #206a5d;
+  background-color: $bg;
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
 }
@@ -51,9 +37,8 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-}
-@media (min-width: 1px) and (max-width: 999px) {
-  .row {
+
+  @include respond-to("small-medium") {
     flex-direction: column;
     justify-content: center;
   }
@@ -78,11 +63,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 /* 
 .bankBox {
   align-items: center;
 } */
+
 .word {
   font-size: 5rem;
   margin-bottom: 2rem;
@@ -111,18 +96,19 @@ ul {
   letter-spacing: 1px;
   outline: none;
   box-shadow: 20px 38px 34px -26px;
-  background-color: hsla(0deg, 0%, 0%, 0.2);
+  background-color: hsla(0, 0%, 0%, 0.2);
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
+
   border: solid 7px #f58634;
 }
 
 button:hover {
-  box-shadow: 2px 8px 4px -6px hsla(0deg, 0%, 0%, 0.3);
-  background-color: hsla(0deg, 0%, 0%, 0.3);
-  background-color: hsla(0deg, 0%, 0%, 0.3);
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 span {
@@ -135,46 +121,67 @@ a {
   color: #81b214;
 }
 
-.slider[type=range] {
+.slider[type="range"] {
   -webkit-appearance: none;
+  $track-thickness: 0.75rem;
   padding: 0.5rem 0;
-  background: #206a5d;
-}
-.slider[type=range]::-webkit-slider-runnable-track {
-  cursor: pointer;
-  height: 0.75rem;
-  width: 100%;
-  background: #288575;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
-  border-radius: 999px;
-}
-.slider[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-top: calc((-1.5rem / 2) + (0.75rem / 2));
-  border-radius: 50%;
-  background: #288575;
-  cursor: pointer;
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
-}
-.slider[type=range]:hover::-webkit-slider-runnable-track {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-.slider[type=range]:hover::-webkit-slider-thumb {
-  height: 1.75rem;
-  width: 1.75rem;
-  margin-top: calc((-1.75rem / 2) + (0.75rem / 2));
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background: $bg;
+
+  $track-bg: $bg-light;
+  $thumb-bg: $bg-light;
+
+  // &.contrast{
+  //   &::-webkit-slider-runnable-track {
+  //     background: $contrast-light !important;
+  //   }
+  //   &::-webkit-slider-thumb {
+  //     background: $contrast-light !important;
+  //   }
+  // }
+
+  &::-webkit-slider-runnable-track {
+    cursor: pointer;
+    height: $track-thickness;
+    width: 100%;
+    background: $track-bg;
+    @include animate;
+    border-radius: 999px;
+  }
+
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    $size: 1.5rem;
+    height: $size;
+    width: $size;
+    margin-top: calc((-#{$size} / 2) + (#{$track-thickness} / 2));
+    border-radius: 50%;
+    background: $thumb-bg;
+    cursor: pointer;
+
+    box-shadow: $shadow-border;
+
+    @include animate;
+  }
+
+  &:hover {
+    &::-webkit-slider-runnable-track {
+      box-shadow: $shadow-1;
+    }
+    &::-webkit-slider-thumb {
+      $size: 1.75rem;
+      height: $size;
+      width: $size;
+      margin-top: calc((-#{$size} / 2) + (#{$track-thickness} / 2));
+      // background: $bg-dark;
+      box-shadow: $shadow-3;
+    }
+  }
 }
 
 .confirmBtn {
-  background-color: hsla(0deg, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
-
 /* .editBank {
   border: solid 4px #f58634;
 }
@@ -183,6 +190,7 @@ a {
 } */
 /* trying to fix below, didnt work*/
 /* one main fix doublecolumn to column in editBank */
+
 /* .bankList {
   padding: 10px;
   margin-top: 10px;
@@ -238,40 +246,52 @@ a {
 .editWords {
   width: 85%;
 } */
+
 /* octo stuff below */
+
 .bankList {
   margin: 1rem;
   display: flex;
   align-items: center;
-}
-.bankList .buttons {
-  display: flex;
-  flex-direction: column;
-}
-.bankList .buttons .save {
-  display: none;
-}
-.bankList .content {
-  margin: 0.5rem;
-  transition: all 0.15s ease-in-out;
-  flex-grow: 1;
-}
-.bankList.editing .save {
-  display: initial;
-}
-.bankList.editing .edit {
-  display: none;
-}
-.bankList.editing .content {
-  background: #184f45;
-  padding: 0.5rem;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+
+    .save {
+      display: none;
+    }
+  }
+
+  .content {
+    margin: 0.5rem;
+    @include animate;
+    flex-grow: 1;
+  }
+
+  &.editing {
+    .save {
+      display: initial;
+    }
+    .edit {
+      display: none;
+    }
+
+    .content {
+      background: $bg-dark;
+      padding: 0.5rem;
+      box-shadow: $inset-shadow-1;
+    }
+  }
 }
 
-.buttonGrp {
+
+.buttonGrp { 
+  // width: 100%;
   display: flex;
   align-items: center;
+
+  > *:not(:last-child) {
+    margin-right: 0.5rem;
+  }
 }
-.buttonGrp > *:not(:last-child) {
-  margin-right: 0.5rem;
-}/*# sourceMappingURL=style.css.map */

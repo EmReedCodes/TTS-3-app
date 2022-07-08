@@ -17,7 +17,7 @@
 </div> -->
 <body>
     <div class="container holdBoth">
-        
+        <div class="row">
           <div class="speakbank repeatBox doubleColumn">
             <div class="word">Hit Next To Begin</div>
             <div class="buttonGrp">
@@ -39,7 +39,7 @@
             <div class="inputWords">
               <h2>Word Bank</h2>
               <form action="/" method="POST">
-                <input type="text" name="content" id="content" />
+                <input type="text" class="text-input" name="content" id="content" />
                 <button type="submit" class="confirmBtn">Submit</button>
               </form>
             </div>
@@ -51,19 +51,26 @@
             <li class="bankList">
               <!-- details.content is the word being posted and sent to db -->
               <!-- can add the edit and delete function just want basics to work -->
-              <div><%= details.content %></div>
-              <a href="/edit/<%= details._id %>" class="edit">
-                <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
-              </a>
-              <a href="/remove/<%= details._id %>" class="remove">
-                <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
-              </a>
+              <!-- <a href="/edit/<%= details._id %>" class="edit"> -->
+                
+                <div class="buttons">
+                  <a onClick="edit('<%= details._id %>')" class="edit">
+                    <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
+                  </a>
+                  <a onClick="save('<%= details._id %>')" class="save">
+                    <span class="fa-solid fa-save" role="img" aria-label="Save"></span>
+                  </a>
+                  <a href="/remove/<%= details._id %>" class="remove">
+                    <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
+                  </a>
+                </div>
+                <div class="content"><%= details.content %></div>
             </li>
             <% }) %>
           </ul>
         </div>
       </div>
-    
+    </div>
     </div>
     
   <script src="/static/main.js"></script>
