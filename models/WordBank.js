@@ -16,3 +16,5 @@ const wordBankSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('WordBank', wordBankSchema);
+
+//
