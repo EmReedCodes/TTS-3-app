@@ -88,10 +88,10 @@ body {
   margin-bottom: 2rem;
 }
 
-h2 {
-  text-align: center;
+/* h2 {
+  
   font-size: 2rem;
-}
+} */
 
 ul {
   list-style: none;
@@ -175,69 +175,7 @@ a {
   background-color: hsla(0deg, 0%, 0%, 0.3);
 }
 
-/* .editBank {
-  border: solid 4px #f58634;
-}
-.editBank:focus {
-  outline: none;
-} */
-/* trying to fix below, didnt work*/
-/* one main fix doublecolumn to column in editBank */
-/* .bankList {
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-}
 
-
-.bankList form {
-  width: 50%;
-  display: flex;
-}
-
-.bankList input {
-  flex-grow: 2;
-  margin-right: 20px;
-  border: none;
-  border-radius: 5px;
-}
-
-.bankList button {
-  cursor: pointer;
-}
-
-.bankList .cancel {
-  cursor: pointer;
-  text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    color: #81b214;
-} */
-/* flex grow moving icons to the right */
-/* .bankList div {
-  flex-grow: 1;
-}
-
-.bankList .edit {
-  cursor: pointer;
-  margin-right: 10px;
-} 
-
-.bankList .remove {
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.confirmBtn {
-  border: solid 4px #f58634;
-}
-
-.editWords {
-  width: 85%;
-} */
 /* octo stuff below */
 .bankList {
   margin: 1rem;

@@ -3,6 +3,8 @@
 
 //TTS //https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/
 
+// const { raw } = require("express")
+
 // TODO; look into browserify so I can import npm modules to client side ?
 // let wordData = []
 // let randomWord
@@ -83,9 +85,9 @@ async function runRequest(event) {
 //go refetch the data
 //callback to get data
 //do an undefined check
-runRequest().then(() => {
-  console.log(bankData)
-})
+//runRequest().then(() => {
+//  console.log(bankData)
+//})
 
 //didnt need this whoops
 // function repeatValue() {
@@ -122,6 +124,37 @@ function runRepeat() {
   synth.speak(utterThis)
 }
 
+//put new word to db
+
+async function newWord(word){
+
+word = document.getElementById('content').value
+console.log(word)
+let rawResponse = await fetch("/newWord", {
+
+
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ content: word })
+})
+
+if (rawResponse.status == 200) {
+  const content = await rawResponse.json()
+  console.log(content)
+  word = ''
+ 
+
+} else { // everything is not good
+  console.log(rawResponse)
+  alert("something went wrong in the server")
+  // sendToast({type: 2, "something went wrong"})
+}
+
+}
+
 //from onclick
 //
 function edit(id) {
@@ -132,7 +165,7 @@ function edit(id) {
   parentElm.classList.add("editing")
 }
 
-let foo
+// let foo
 //only show delete after click
 async function save(id) {
   let parentElm = event.target.closest("li")
@@ -196,9 +229,7 @@ async function remove(id) {
   if (rawResponse.status == 200) {
     parentElm.remove()
     console.log('it worked')
-    // extra credit: extract these strings into a string object
-    // sendToast({type: 0, "word saved"})
-    // sendToast({type: 0, strings.wordSaved})
+  
   
   } else { // everything is not good
     console.log(rawResponse)

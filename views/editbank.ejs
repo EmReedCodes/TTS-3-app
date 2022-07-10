@@ -34,24 +34,25 @@
           
             <h2>Word Bank</h2>
             <!-- operating on the same form from todo.ejs -->
-            <form action="" method="POST">
-              <input type="text" name="content" />
+            <!-- <form action="" method="POST"> -->
+              <input type="text" name="content" id="content" />
               <button type="submit confirmBtn" >Submit</button>
-            </form>
+            <!-- </form> -->
           
           <div class="editWords">
             <ul>
               <!-- method on same object. different tasks. this one grabbing id  -->
               <% wordBank.forEach(details => { %> <% if (details._id == idTask) { %>
               <li class="bankList">
+                <!-- do I need the post request for edit? -->
                 <!-- form to go to the edit route and get id -->
-                <form action="/edit/<%= details._id %>" method="POST">
+                <!-- <form action="/edit/<%= details._id %>" method="POST"> -->
                   <input type="text" value="<%= details.content %>" name="content" class="editBank"/>
                   <button type="submit" class="confirmBtn" >Confirm</button>
                   <button type="submit" class="confirmBtn">
                   <a href="/" class="cancel">Cancel</a>
                   </button>
-                </form>
+                <!-- </form> -->
               </li>
 
               <% } else { %>

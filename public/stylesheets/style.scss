@@ -74,7 +74,8 @@ body {
 }
 
 h2 {
-  text-align: center;
+  
+  padding-bottom: 1rem;
   font-size: 2rem;
 }
 
@@ -235,70 +236,4 @@ a {
 
 // toast
 
-.toast-container{
-	background-color:rgb(250, 150, 0);
-	height:300px;
-	position:relative;
-  overflow:hidden;
-}
-.toast-toast{
-	position:absolute;
-	bottom:0;
-	right:0;
-	padding:20px;
-	background-color:#323232;
-	color:#FFF;
-	border-top-left-radius: 6px;
-	min-width:100px;
-	min-height:20px;
-	margin-bottom:-60px;
-}
-.toast-content{
-	overflow:hidden;
-}
-.animate{
-    -webkit-transition-duration: 600ms;
-    transition-duration: 600ms;
-}
 
-
-
-
-
-
-.card-vert-center{
-	position: relative;
-	top: 50%;
-}
-.card-relative{
-	position:relative;
-}
-
-
-
-
-
-
-/*   amendments   */
-.mdl-layout{
-	overflow-y:initial;
-	overflow-x:initial;
-}
-textarea.mdl-textfield__input {
-	border-bottom: 1px solid rgba(0,0,0,.12);
-}
-.mdl-textfield__label{
-	color:rgba(0,0,0,.50);
-}
-.mdl-typography--title.light{
-	font-weight: 400;
-}
-.mdl-typography--headline.light{
-	font-weight: 300;
-}   
-.mdl-textfield__input.accent{
-	border-bottom:1px solid rgba(63,81,181,.57);
-}
-.mdl-textfield__input:disabled{
-	cursor: not-allowed;
-}

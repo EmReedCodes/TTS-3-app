@@ -35,10 +35,12 @@
           <div class="workbank bankBox column">
             <div class="inputWords">
               <h2>Word Bank</h2>
-              <form action="/" method="POST">
+              <!-- <form action="/newWord" method="POST"> -->
+               <div class="wordInput">
                 <input type="text" class="text-input" name="content" id="content" />
-                <button type="submit" class="confirmBtn">Submit</button>
-              </form>
+                <button class="confirmBtn" onclick="newWord()">Submit</button>
+              </div>
+              <!-- </form> -->
             </div>
             <div class="editWords">
     
@@ -48,7 +50,7 @@
             <li class="bankList">
               <!-- details.content is the word being posted and sent to db -->
               <!-- can add the edit and delete function just want basics to work -->
-              <a href="/edit/<%= details._id %>" class="edit">
+              <!-- <a href="/edit/<%= details._id %>" class="edit"> -->
                 
                 <div class="buttons">
                   <a onClick="edit('<%= details._id %>')" class="edit">
@@ -62,6 +64,8 @@
                   </a>
                 </div>
                 <div class="content"><%= details.content %></div>
+                <!-- didnt have my closing a? -->
+                <!-- </a> -->
             </li>
             <% }) %>
           </ul>

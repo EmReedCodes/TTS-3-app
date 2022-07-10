@@ -36,7 +36,7 @@ app.set("view engine", "ejs")
 //need to see our data
 app.get("/", async (req, res) => {
   WordBank.find({}, (err, tasks) => {
-    //templating variable wordBank : tasks
+   // templating variable wordBank : tasks
     res.render("index.ejs", { wordBank: tasks })
   })
 })
@@ -95,17 +95,20 @@ app.get("/api/foo", (req, res) => {
 // })
 
 //saving new input 
-app.post("/", async (req, res) => {
+app
+.route("/newWord")
+.post( (req, res) => {
   //yo save that input to muh bank
   const wordBank = new WordBank({
     //yo gimme dat input
     content: req.body.content
   })
   try {
-    await wordBank.save()
-    res.redirect("/")
-  } catch (err) {
-    res.redirect("/")
+   
+     wordBank.save()
+    //  res.status(400).send(err)
+  } catch(err) {
+    res.status(400).send({msg: "sorry :("})
   }
 })
 
@@ -161,11 +164,3 @@ app
     })
   })
 
-
-//   app.route('/remove/:id').get((req, res) => {
-//     const id = req.params.id;
-//     TodoTask.findByIdAndRemove(id, err => {
-//         if(err) return res.send(500, err);
-//         res.redirect('/');
-//     });
-// });
