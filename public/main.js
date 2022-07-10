@@ -38,7 +38,7 @@
 
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
-let ourText = ""
+// let ourText = ""
 
 const checkBrowserCompatibility = () => {
   "speechSynthesis" in window
@@ -47,6 +47,13 @@ const checkBrowserCompatibility = () => {
 }
 //check if browser is compatiable with above
 checkBrowserCompatibility()
+
+window.onload = function(){
+  let placeWord = document.querySelector('.word')
+  
+    placeWord.textContent = localStorage.getItem('word')
+  
+}
 
 // let content
 
@@ -72,6 +79,7 @@ async function runRequest(event) {
     //change the dispalyed word to our random word
     document.querySelector(".word").innerText = speakWord
     console.log(speakWord)
+    localStorage.setItem('word', speakWord)
     //now assign speech function to this word
     utterThis.text = speakWord
     //speak that word
@@ -126,34 +134,34 @@ function runRepeat() {
 
 //put new word to db
 
-async function newWord(word){
+// async function newWord(word){
 
-word = document.getElementById('content').value
-console.log(word)
-let rawResponse = await fetch("/newWord", {
+// word = document.getElementById('content').value
+// console.log(word)
+// let rawResponse = await fetch("/newWord", {
 
 
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ content: word })
-})
+//   method: "POST",
+//   headers: {
+//     Accept: "application/json",
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify({ content: word })
+// })
 
-if (rawResponse.status == 200) {
-  const content = await rawResponse.json()
-  console.log(content)
-  word = ''
+// if (rawResponse.status == 200) {
+//   const content = await rawResponse.json()
+//   console.log(content)
+  
  
 
-} else { // everything is not good
-  console.log(rawResponse)
-  alert("something went wrong in the server")
-  // sendToast({type: 2, "something went wrong"})
-}
-
-}
+// } else { // everything is not good
+//   console.log(rawResponse)
+//   alert("something went wrong in the server")
+//   // sendToast({type: 2, "something went wrong"})
+// }
+// word = ''
+// }
 
 //from onclick
 //

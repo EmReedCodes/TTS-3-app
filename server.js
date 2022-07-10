@@ -96,21 +96,19 @@ app.get("/api/foo", (req, res) => {
 
 //saving new input 
 app
-.route("/newWord")
-.post( (req, res) => {
-  //yo save that input to muh bank
-  const wordBank = new WordBank({
-    //yo gimme dat input
-    content: req.body.content
-  })
-  try {
-   
-     wordBank.save()
-    //  res.status(400).send(err)
-  } catch(err) {
-    res.status(400).send({msg: "sorry :("})
-  }
-})
+.route("/")
+.post( async (req, res) => {
+
+    const wordBank = new WordBank({
+        content: req.body.content
+    });
+    try{
+        await wordBank.save();
+        res.redirect('/');
+    } catch(err){
+        res.redirect('/');
+    }
+});
 
 
 
@@ -164,3 +162,22 @@ app
     })
   })
 
+
+  // use with fetch instead of form
+
+//   app
+// .route("/newWord")
+// .post( (req, res) => {
+//   //yo save that input to muh bank
+//   const wordBank = new WordBank({
+//     //yo gimme dat input
+//     content: req.body.content
+//   })
+//   try {
+   
+//      wordBank.save()
+//     //  res.status(400).send(err)
+//   } catch(err) {
+//     res.status(400).send({msg: "sorry :("})
+//   }
+// })
