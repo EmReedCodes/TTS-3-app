@@ -34,7 +34,7 @@
           
             <h2>Word Bank</h2>
             <!-- operating on the same form from todo.ejs -->
-            <form action="" method="POST" class="bankHeader">
+            <form action="" method="POST">
               <input type="text" name="content" />
               <button type="submit confirmBtn" >Submit</button>
             </form>
@@ -58,20 +58,25 @@
               <li class="bankList">
                 <div><%= details.content %></div>
                 <a onClick="edit(this)" class="edit">
-                <!-- <a href="/edit/<%= details._id %>" class="edit"> -->
+      
                   <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
                 </a>
-                <a href="/remove/<%= details._id %>" class="remove">
+                <a onClick="save('<%= details._id %>')" class="save">
+                  <span class="fa-solid fa-save" role="img" aria-label="Save"></span>
+                </a>
+                  <a onClick="remove('<%= details._id %>')" class="remove"></a>
                   <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
                 </a>
               </li>
               <% } %> 
               <% }) %>
             </ul>
+            
           </div>
         </div>
       </div>
     </div>
+    
     <script src="/static/main.js"></script>
   </body>
 </html>

@@ -1,3 +1,6 @@
+
+
+
 //TTS //https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/
 
 // TODO; look into browserify so I can import npm modules to client side ?
@@ -29,6 +32,8 @@
 // })
 
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
+
+
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
 let ourText = ""
@@ -139,6 +144,8 @@ async function save(id) {
   //go to db to store it
   //declaring async to wait for fetch
   let rawResponse = await fetch("/save", {
+
+
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -169,5 +176,43 @@ async function save(id) {
 }
 //if response code 200 
 //then everything is good go ahead remove the class that we added to the parent element 
+
+async function remove(id) {
+  let parentElm = event.target.closest("li")
+  let contentElm = parentElm.querySelector(".content")
+
+  let rawResponse = await fetch("/remove", {
+
+
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id: id, content: content })
+  })
+
+  // everything is good
+  if (rawResponse.status == 200) {
+    parentElm.remove()
+    console.log('it worked')
+    // extra credit: extract these strings into a string object
+    // sendToast({type: 0, "word saved"})
+    // sendToast({type: 0, strings.wordSaved})
+  
+  } else { // everything is not good
+    console.log(rawResponse)
+  
+    // replace this alert with a toast message: 
+    // https://codepen.io/octoshrimpy/pen/JYPQbo
+    //user wont be able to click 
+    //once clicked flag can go away
+    alert("something went wrong in the server")
+    // sendToast({type: 2, "something went wrong"})
+  }
+  
+}
+
+//toast
 
 

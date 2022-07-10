@@ -182,70 +182,7 @@ a {
 .confirmBtn {
   background-color: hsla(0, 0%, 0%, 0.3);
 }
-/* .editBank {
-  border: solid 4px #f58634;
-}
-.editBank:focus {
-  outline: none;
-} */
-/* trying to fix below, didnt work*/
-/* one main fix doublecolumn to column in editBank */
 
-/* .bankList {
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-}
-
-
-.bankList form {
-  width: 50%;
-  display: flex;
-}
-
-.bankList input {
-  flex-grow: 2;
-  margin-right: 20px;
-  border: none;
-  border-radius: 5px;
-}
-
-.bankList button {
-  cursor: pointer;
-}
-
-.bankList .cancel {
-  cursor: pointer;
-  text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    color: #81b214;
-} */
-/* flex grow moving icons to the right */
-/* .bankList div {
-  flex-grow: 1;
-}
-
-.bankList .edit {
-  cursor: pointer;
-  margin-right: 10px;
-} 
-
-.bankList .remove {
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.confirmBtn {
-  border: solid 4px #f58634;
-}
-
-.editWords {
-  width: 85%;
-} */
 
 /* octo stuff below */
 
@@ -294,4 +231,74 @@ a {
   > *:not(:last-child) {
     margin-right: 0.5rem;
   }
+}
+
+// toast
+
+.toast-container{
+	background-color:rgb(250, 150, 0);
+	height:300px;
+	position:relative;
+  overflow:hidden;
+}
+.toast-toast{
+	position:absolute;
+	bottom:0;
+	right:0;
+	padding:20px;
+	background-color:#323232;
+	color:#FFF;
+	border-top-left-radius: 6px;
+	min-width:100px;
+	min-height:20px;
+	margin-bottom:-60px;
+}
+.toast-content{
+	overflow:hidden;
+}
+.animate{
+    -webkit-transition-duration: 600ms;
+    transition-duration: 600ms;
+}
+
+
+
+
+
+
+.card-vert-center{
+	position: relative;
+	top: 50%;
+}
+.card-relative{
+	position:relative;
+}
+
+
+
+
+
+
+/*   amendments   */
+.mdl-layout{
+	overflow-y:initial;
+	overflow-x:initial;
+}
+textarea.mdl-textfield__input {
+	border-bottom: 1px solid rgba(0,0,0,.12);
+}
+.mdl-textfield__label{
+	color:rgba(0,0,0,.50);
+}
+.mdl-typography--title.light{
+	font-weight: 400;
+}
+.mdl-typography--headline.light{
+	font-weight: 300;
+}   
+.mdl-textfield__input.accent{
+	border-bottom:1px solid rgba(63,81,181,.57);
+}
+.mdl-textfield__input:disabled{
+	cursor: not-allowed;
 }

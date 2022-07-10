@@ -135,10 +135,37 @@ app.post("/", async (req, res) => {
   //if exists and it equals what im trying to delete 
   //then go back to client if response 200 remove 
 //DELETE
-app.route("/remove/:id").get((req, res) => {
-  const id = req.params.id
-  WordBank.findByIdAndRemove(id, err => {
-    if (err) return res.send(500, err)
-    res.redirect("/")
+// app.route("/remove/:id").get((req, res) => {
+//   const id = req.params.id
+//   WordBank.findByIdAndRemove(id, err => {
+//     if (err) return res.send(500, err)
+//     res.redirect("/")
+//   })
+// })
+//use get in mongoose
+// I would say that a best practice would be that you should use params when doing a get, but use body for post, put and patch.
+app
+.route("/remove")
+.delete((req, res) => {
+
+    const id      = req.body.id
+    const content = req.body.content
+
+    WordBank.findByIdAndDelete(id, { content: content}, err => {
+      if (err) {
+        console.log(err)
+        res.status(400).send(err)
+      } else {
+        res.status(200).send({msg: "bye word"})
+      }
+    })
   })
-})
+
+
+//   app.route('/remove/:id').get((req, res) => {
+//     const id = req.params.id;
+//     TodoTask.findByIdAndRemove(id, err => {
+//         if(err) return res.send(500, err);
+//         res.redirect('/');
+//     });
+// });

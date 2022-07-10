@@ -17,7 +17,8 @@
     "express": "^4.18.1",
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.0",
-    "speak-tts": "^2.0.8"
+    "speak-tts": "^2.0.8",
+    "toastify-js": "^1.11.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.18"
