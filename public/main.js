@@ -141,7 +141,7 @@ function edit() {
 // let foo
 //only show delete after click
 async function save(id) {
-  let newPar = document.querySelector('.bankList')
+  
   //whichever li is clicked on (parentElm) (bankList)
   //newPar.closest('li') didnt work
   let parentElm = event.target.closest("li")
