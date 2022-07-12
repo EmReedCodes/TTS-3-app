@@ -130,7 +130,7 @@ function runRepeat() {
 
 //from onclick
 //
-function edit() {
+function edit(id, event) {
   let parentElm = event.target.closest("li")
   let contentElm = parentElm.querySelector(".content")
 
@@ -140,7 +140,7 @@ function edit() {
 
 // let foo
 //only show delete after click
-async function save(id) {
+async function save(id, event) {
   
   //whichever li is clicked on (parentElm) (bankList)
   //newPar.closest('li') didnt work
@@ -189,10 +189,8 @@ async function save(id) {
 //if response code 200 
 //then everything is good go ahead remove the class that we added to the parent element 
 
-async function remove(id) {
+async function remove(id, event) {
   let parentElm = event.target.closest("li")
-  let contentElm = parentElm.querySelector(".content")
-
   let rawResponse = await fetch("/remove", {
 
 
