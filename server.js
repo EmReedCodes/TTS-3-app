@@ -54,6 +54,86 @@ app.get("/api/foo", (req, res) => {
   })
 })
 
+
+app
+.route("/")
+.post( async (req, res) => {
+
+    const wordBank = new WordBank({
+        content: req.body.content
+    });
+    try{
+        await wordBank.save();
+        res.redirect('/');
+    } catch(err){
+        res.redirect('/');
+    }
+});
+
+
+
+  app
+  .route("/save")
+  .post((req, res) => {
+
+    const id      = req.body.id
+    const content = req.body.content
+
+    WordBank.findByIdAndUpdate(id, { content: content}, err => {
+      if (err) {
+        console.log(err)
+        res.status(400).send(err)
+      } else {
+        res.status(200).send({msg: "a-ok!"})
+      }
+    })
+  })
+//express deprecated res.send(status, body): Use res.status(status).send(body)
+
+
+
+// I would say that a best practice would be that you should use params when doing a get, but use body for post, put and patch.
+app
+.route("/remove")
+.delete((req, res) => {
+
+    const id      = req.body.id
+    const content = req.body.content
+
+    WordBank.findByIdAndDelete(id, { content: content}, err => {
+      if (err) {
+        console.log(err)
+        res.status(400).send(err)
+      } else {
+        res.status(200).send({msg: "bye word"})
+      }
+    })
+  })
+
+
+  // use with fetch instead of form
+
+//   app
+// .route("/newWord")
+// .post( (req, res) => {
+//   //yo save that input to muh bank
+//   const wordBank = new WordBank({
+//     //yo gimme dat input
+//     content: req.body.content
+//   })
+//   try {
+   
+//      wordBank.save()
+//     //  res.status(400).send(err)
+//   } catch(err) {
+//     res.status(400).send({msg: "sorry :("})
+//   }
+// })
+
+
+
+//extra credit
+
 //passing a header from client to server 
 //input.type.date
 // then filter data by date that was passed
@@ -95,89 +175,3 @@ app.get("/api/foo", (req, res) => {
 // })
 
 //saving new input 
-app
-.route("/")
-.post( async (req, res) => {
-
-    const wordBank = new WordBank({
-        content: req.body.content
-    });
-    try{
-        await wordBank.save();
-        res.redirect('/');
-    } catch(err){
-        res.redirect('/');
-    }
-});
-
-
-
-  app
-  .route("/save")
-  .post((req, res) => {
-
-    const id      = req.body.id
-    const content = req.body.content
-
-    WordBank.findByIdAndUpdate(id, { content: content}, err => {
-      if (err) {
-        console.log(err)
-        res.status(400).send(err)
-      } else {
-        res.status(200).send({msg: "a-ok!"})
-      }
-    })
-  })
-//express deprecated res.send(status, body): Use res.status(status).send(body)
-
-
-  //ill need to update this 
-  //make a post does this exist?
-  //if exists and it equals what im trying to delete 
-  //then go back to client if response 200 remove 
-//DELETE
-// app.route("/remove/:id").get((req, res) => {
-//   const id = req.params.id
-//   WordBank.findByIdAndRemove(id, err => {
-//     if (err) return res.send(500, err)
-//     res.redirect("/")
-//   })
-// })
-//use get in mongoose
-// I would say that a best practice would be that you should use params when doing a get, but use body for post, put and patch.
-app
-.route("/remove")
-.delete((req, res) => {
-
-    const id      = req.body.id
-    const content = req.body.content
-
-    WordBank.findByIdAndDelete(id, { content: content}, err => {
-      if (err) {
-        console.log(err)
-        res.status(400).send(err)
-      } else {
-        res.status(200).send({msg: "bye word"})
-      }
-    })
-  })
-
-
-  // use with fetch instead of form
-
-//   app
-// .route("/newWord")
-// .post( (req, res) => {
-//   //yo save that input to muh bank
-//   const wordBank = new WordBank({
-//     //yo gimme dat input
-//     content: req.body.content
-//   })
-//   try {
-   
-//      wordBank.save()
-//     //  res.status(400).send(err)
-//   } catch(err) {
-//     res.status(400).send({msg: "sorry :("})
-//   }
-// })

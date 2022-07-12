@@ -97,11 +97,6 @@ async function runRequest(event) {
 //  console.log(bankData)
 //})
 
-//didnt need this whoops
-// function repeatValue() {
-//   synth.speak(utterThis)
-// }
-// document.querySelector(".wordRepeat").addEventListener("click", repeatValue)
 
 function updateSpeachRate(event) {
   //
@@ -132,40 +127,10 @@ function runRepeat() {
   synth.speak(utterThis)
 }
 
-//put new word to db
-
-// async function newWord(word){
-
-// word = document.getElementById('content').value
-// console.log(word)
-// let rawResponse = await fetch("/newWord", {
-
-
-//   method: "POST",
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify({ content: word })
-// })
-
-// if (rawResponse.status == 200) {
-//   const content = await rawResponse.json()
-//   console.log(content)
-  
- 
-
-// } else { // everything is not good
-//   console.log(rawResponse)
-//   alert("something went wrong in the server")
-//   // sendToast({type: 2, "something went wrong"})
-// }
-// word = ''
-// }
 
 //from onclick
 //
-function edit(id) {
+function edit() {
   let parentElm = event.target.closest("li")
   let contentElm = parentElm.querySelector(".content")
 
@@ -176,9 +141,14 @@ function edit(id) {
 // let foo
 //only show delete after click
 async function save(id) {
+  let newPar = document.querySelector('.bankList')
+  //whichever li is clicked on (parentElm) (bankList)
+  //newPar.closest('li') didnt work
   let parentElm = event.target.closest("li")
+  console.log(parentElm)
+  //the element within that parentElm's
   let contentElm = parentElm.querySelector(".content")
-
+  console.log(contentElm)
   //where is content stored?
   let content = contentElm.innerText
 
@@ -192,6 +162,7 @@ async function save(id) {
       Accept: "application/json",
       "Content-Type": "application/json"
     },
+    //stringify: send as a string and transport data from client to server
     body: JSON.stringify({ id: id, content: content })
   })
 
@@ -241,17 +212,42 @@ async function remove(id) {
   
   } else { // everything is not good
     console.log(rawResponse)
-  
-    // replace this alert with a toast message: 
-    // https://codepen.io/octoshrimpy/pen/JYPQbo
-    //user wont be able to click 
-    //once clicked flag can go away
     alert("something went wrong in the server")
-    // sendToast({type: 2, "something went wrong"})
   }
   
 }
 
 //toast
 
+//option to send word through fetch instead of form
 
+//put new word to db
+
+// async function newWord(word){
+
+// word = document.getElementById('content').value
+// console.log(word)
+// let rawResponse = await fetch("/newWord", {
+
+
+//   method: "POST",
+//   headers: {
+//     Accept: "application/json",
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify({ content: word })
+// })
+
+// if (rawResponse.status == 200) {
+//   const content = await rawResponse.json()
+//   console.log(content)
+  
+ 
+
+// } else { // everything is not good
+//   console.log(rawResponse)
+//   alert("something went wrong in the server")
+//   // sendToast({type: 2, "something went wrong"})
+// }
+// word = ''
+// }

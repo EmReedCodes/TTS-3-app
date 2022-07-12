@@ -45,8 +45,9 @@
             <div class="editWords">
     
           <ul>
-            <% wordBank.forEach(details => { %>
+            <% wordBank.forEach((details,idx) => { %>
             <!-- creating an LI for each instance -->
+            <%if (idx < 10) { %>
             <li class="bankList">
               <!-- details.content is the word being posted and sent to db -->
               <!-- can add the edit and delete function just want basics to work -->
@@ -67,6 +68,7 @@
                 <!-- didnt have my closing a? -->
                 <!-- </a> -->
             </li>
+            <% } %>
             <% }) %>
           </ul>
         </div>
