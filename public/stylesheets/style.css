@@ -29,12 +29,8 @@
 }
 
 html, body {
-  height: 100%;
-  margin: 0;
+  min-height: 100%;
   padding: 0;
-}
-
-body {
   background-color: #206a5d;
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
@@ -42,7 +38,6 @@ body {
 
 .holdBoth {
   display: flex;
-  align-items: center;
   height: 100%;
 }
 
@@ -51,17 +46,22 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
-@media (min-width: 1px) and (max-width: 999px) {
+@media (min-width: 1px) and (max-width: 600px) {
   .row {
     flex-direction: column;
     justify-content: center;
+    gap: 1rem;
   }
 }
 
 .doubleColumn {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* changed below to make room for confirm/cancel */
   flex: 1.5;
 }
@@ -71,27 +71,17 @@ body {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  gap: 1rem;
 }
 
-.repeatBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 
-.bankBox {
-  align-items: center;
-} */
 .word {
   font-size: 5rem;
-  margin-bottom: 2rem;
 }
 
-/* h2 {
-  
+h2 {
+  padding-bottom: 1rem;
   font-size: 2rem;
-} */
+}
 
 ul {
   list-style: none;
@@ -117,6 +107,25 @@ ul {
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
   border: solid 7px #f58634;
+}
+@media (min-width: 1px) and (max-width: 999px) {
+  .confirmBtn,
+.text-input {
+    width: 90%;
+  }
+}
+
+.wordInput {
+  display: flex;
+  gap: 5px;
+}
+.wordInput .confirmBtn {
+  border: solid 7px #f58634;
+}
+@media (min-width: 1px) and (max-width: 999px) {
+  .wordInput {
+    flex-direction: column;
+  }
 }
 
 button:hover {
@@ -174,7 +183,6 @@ a {
 .confirmBtn {
   background-color: hsla(0deg, 0%, 0%, 0.3);
 }
-
 
 /* octo stuff below */
 .bankList {

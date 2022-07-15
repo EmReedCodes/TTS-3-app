@@ -3,7 +3,7 @@
 $bg: #206a5d;
 $bg-light: lighten($bg, 7%);
 $bg-dark: darken($bg, 7%);
-$contrast: #a966a5;
+$contrast: #862f82;
 $contrast-light: lighten($contrast, 7%);
 $contrast-dark: darken($contrast, 7%);
 
@@ -15,20 +15,21 @@ $contrast-dark: darken($contrast, 7%);
 }
 
 html, body {
-  height: 100%;
-  margin: 0;
+  min-height: 100%;
+  // max-width: 90%;
+  // margin: 0 auto;
   padding: 0;
-}
-
-body {
   background-color: $bg;
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
 }
 
+// body {
+ 
+// }
+
 .holdBoth {
   display: flex;
-  align-items: center;
   height: 100%;
 }
 
@@ -37,16 +38,26 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  width: 90%;
+  margin: 0 auto;
 
-  @include respond-to("small-medium") {
+  // @include respond-to("medium") {
+
+  // }
+  @include respond-to("small") {
+
     flex-direction: column;
     justify-content: center;
+    // gap here spaced items on main axis for me
+    gap: 1rem;
   }
 }
 
 .doubleColumn {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* changed below to make room for confirm/cancel */
   flex: 1.5;
 }
@@ -56,27 +67,19 @@ body {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  gap: 1rem;
 }
 
-.repeatBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* 
-.bankBox {
-  align-items: center;
-} */
 
 .word {
   font-size: 5rem;
-  margin-bottom: 2rem;
 }
 
 h2 {
   
   padding-bottom: 1rem;
   font-size: 2rem;
+ 
 }
 
 ul {
@@ -102,8 +105,25 @@ ul {
   border-top-right-radius: 15px 225px;
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
-
   border: solid 7px #f58634;
+  @include respond-to("small-medium"){
+    width: 90%;
+  }
+
+
+}
+
+.wordInput {
+  display: flex;
+  gap: 5px;
+  .confirmBtn{
+    border: solid 7px #f58634;
+  }
+    @include respond-to("small-medium"){
+      
+       flex-direction: column;
+    }
+  
 }
 
 button:hover {
