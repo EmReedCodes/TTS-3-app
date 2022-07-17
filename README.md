@@ -49,6 +49,7 @@ To use this website you can just input any words you'd like to practice into the
 * [speech synth](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)
 * [todo app for my word bank](https://medium.com/@diogo.fg.pinheiro/simple-to-do-list-app-with-node-js-and-mongodb-chapter-1-c645c7a27583)
 * [tts tutorial](https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/)
+* [octoshrimpy scss lib](https://gist.github.com/octoshrimpy/b062bbfacbb290b77949f0c26ba8bd81)
 
 <!-- CONTACT -->
 ## Contact
