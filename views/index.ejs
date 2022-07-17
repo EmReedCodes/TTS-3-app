@@ -62,9 +62,7 @@
             <%if (idx < 10) { %>
             <li class="bankList">
               <!-- details.content is the word being posted and sent to db -->
-              <!-- can add the edit and delete function just want basics to work -->
-              <!-- <a href="/edit/<%= details._id %>" class="edit"> -->
-                
+              <div class="content"><%= details.content %></div>
                 <div class="buttons">
                   <a onClick="edit('<%= details._id %>', event)" class="edit">
                     <span class="fa-solid fa-pen-to-square" role="img" aria-label="Edit"></span>
@@ -76,7 +74,7 @@
                     <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
                   </a>
                 </div>
-                <div class="content"><%= details.content %></div>
+                
                 <!-- didnt have my closing a? -->
                 <!-- </a> -->
             </li>

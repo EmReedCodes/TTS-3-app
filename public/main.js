@@ -73,7 +73,7 @@ function updateSpeachRate(event) {
   console.log(event.target.value)
   //if I use slider change that value to my speech function
   utterThis.rate = rate.value
-  document.querySelector('.speed').innerText = event.target.value
+  // document.querySelector('.speed').innerText = event.target.value
 }
 //my slide button
 const rate = document.querySelector("#SpeachRateSlider")

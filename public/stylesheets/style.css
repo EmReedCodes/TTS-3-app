@@ -62,8 +62,9 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  /* changed below to make room for confirm/cancel */
   flex: 1.5;
+  min-height: 100%;
+  padding-top: 15rem;
 }
 
 .column {
@@ -150,6 +151,12 @@ a {
   padding: 0.5rem 0;
   background: #206a5d;
   display: block;
+}
+.slider[type=range].contrast::-webkit-slider-runnable-track {
+  background: #a0389c !important;
+}
+.slider[type=range].contrast::-webkit-slider-thumb {
+  background: #a0389c !important;
 }
 .slider[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;

@@ -53,14 +53,12 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  // align-items: center;
   align-items: center;
-  /* changed below to make room for confirm/cancel */
   flex: 1.5;
-  //  align-self: center;
   //below is what I want to do without hardcoding it
-  // height: 100%;
-  // padding-top: 15rem;
+  // end now hardcoding isnt working lol
+  min-height: 100%;
+  padding-top: 15rem;
 }
 
 .column {
@@ -154,14 +152,14 @@ a {
   $track-bg: $bg-light;
   $thumb-bg: $bg-light;
 
-  // &.contrast{
-  //   &::-webkit-slider-runnable-track {
-  //     background: $contrast-light !important;
-  //   }
-  //   &::-webkit-slider-thumb {
-  //     background: $contrast-light !important;
-  //   }
-  // }
+  &.contrast{
+    &::-webkit-slider-runnable-track {
+      background: $contrast-light !important;
+    }
+    &::-webkit-slider-thumb {
+      background: $contrast-light !important;
+    }
+  }
 
   &::-webkit-slider-runnable-track {
     cursor: pointer;
