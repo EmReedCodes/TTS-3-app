@@ -18,6 +18,9 @@ To use this website you can just input any words you'd like to practice into the
 
 ## Demo
 
+https://user-images.githubusercontent.com/96320126/179429369-359769ef-b4ee-4cb3-86b8-7eab5a0965cd.mp4
+
+
 ### Built With
 
 * <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
