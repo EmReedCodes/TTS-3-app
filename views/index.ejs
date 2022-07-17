@@ -20,23 +20,27 @@
             <div class="buttonGrp">
               <button type="submit" class="wordNew confirmBtn">Next</button>
               <button class="wordRate confirmBtn">Repeat</button>
+             
+              <div class="range range-output" style="--step:10; --min:1; --mid:5; --max:10">
               <input
                 type="range"
                 min="0.2"
                 max="1"
-                value="1"
+                value="0.6"
                 step="0.2"
                 class="slider"
                 id="SpeachRateSlider"
-                list="steplist"
               />
-              <datalist id="steplist">
+              <span class="speed"></span>
+              </div>
+              <!-- cant use datalist if not using default styles -->
+              <!-- <datalist id="steplist">
                 <option>0</option>
                 <option>25</option>
                 <option>50</option>
                 <option>75</option>
                 <option>100</option>
-            </datalist>
+            </datalist> -->
             </div>
           </div>
     

@@ -15,6 +15,7 @@ $contrast-dark: darken($contrast, 7%);
 }
 
 html, body {
+  // took off min?
   min-height: 100%;
   // max-width: 90%;
   // margin: 0 auto;
@@ -23,10 +24,6 @@ html, body {
   font-family: "Lexend", sans-serif;
   color: #ffcc29;
 }
-
-// body {
- 
-// }
 
 .holdBoth {
   display: flex;
@@ -41,9 +38,7 @@ html, body {
   width: 90%;
   margin: 0 auto;
 
-  // @include respond-to("medium") {
-
-  // }
+ 
   @include respond-to("small") {
 
     flex-direction: column;
@@ -54,15 +49,22 @@ html, body {
 }
 
 .doubleColumn {
+  // height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  // align-items: center;
   align-items: center;
-  justify-content: center;
   /* changed below to make room for confirm/cancel */
   flex: 1.5;
+  //  align-self: center;
+  //below is what I want to do without hardcoding it
+  // height: 100%;
+  // padding-top: 15rem;
 }
 
 .column {
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -147,6 +149,7 @@ a {
   $track-thickness: 0.75rem;
   padding: 0.5rem 0;
   background: $bg;
+  display: block;
 
   $track-bg: $bg-light;
   $thumb-bg: $bg-light;
@@ -199,6 +202,51 @@ a {
     }
   }
 }
+.range-output {
+  display: flex;
+  .speed {
+    color: $contrast-light
+  }
+}
+// my attempt to add ticks
+//easier to just display the outputted values seperately lol
+// .range {
+//   --ticksThickness: 2px;
+//   --ticksHeight: 30%;
+//   --ticksColor: silver;
+  
+//   display: inline-block;
+//   background: silver;
+//   background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
+//   background-size: calc(100%/((var(--max) - var(--mid) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
+//   background-position: 0 bottom;
+//   position: relative;
+//   &::before, &::after {
+//     font: 12px monospace;
+//     // content is used with before & after to insert content
+//     content: counter(x);
+//     position: absolute;
+//     bottom: -2ch;
+//   }
+//   // &::before {
+//   //   counter-reset: x var(--min);
+//   //   transform: translateX(-50%);
+//   // }
+//   &::after {
+//     counter-reset: x var(--mid);
+//     transform: translate(-50%, -50%);
+//   }
+//   &::after{
+//     counter-reset: x var(--max);
+//     right: 0;
+//     transform: translateX(50%);
+//   }
+// }
+
+// .range > input {
+//   // width: 100%;
+//   margin: 0 -6px; /* Critical adjustment */
+// }
 
 .confirmBtn {
   background-color: hsla(0, 0%, 0%, 0.3);

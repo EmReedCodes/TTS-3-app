@@ -1,37 +1,6 @@
 
-
-
 //TTS //https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/
 
-// const { raw } = require("express")
-
-// TODO; look into browserify so I can import npm modules to client side ?
-// let wordData = []
-// let randomWord
-//  let getContent
-
-// fetch('http://localhost:8010/api/foo')
-// .then((res) => res.json())
-// .then(data => {
-//     data.forEach(item => {
-//          //console.log(item.content)
-//         //wordData.push(item.content)
-//         //item = item.content
-//     })
-//  getContent = data.map(item => item.content)
-//   console.log(getContent)
-
-// })
-// console.log(getContent)
-
-// fetch('http://localhost:8010/api/july17')
-// .then((res) => res.json())
-// .then(data => {
-//     data.forEach(item => {
-//         //console.log(item)
-//         console.log(item.date)
-//     })
-// })
 
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
 
@@ -98,11 +67,13 @@ async function runRequest(event) {
 //})
 
 
+
 function updateSpeachRate(event) {
   //
   console.log(event.target.value)
   //if I use slider change that value to my speech function
   utterThis.rate = rate.value
+  document.querySelector('.speed').innerText = event.target.value
 }
 //my slide button
 const rate = document.querySelector("#SpeachRateSlider")

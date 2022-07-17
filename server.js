@@ -93,6 +93,8 @@ app
 
 
 // I would say that a best practice would be that you should use params when doing a get, but use body for post, put and patch.
+
+
 app
 .route("/remove")
 .delete((req, res) => {
@@ -111,51 +113,8 @@ app
   })
 
 
-  // use with fetch instead of form
-
-//   app
-// .route("/newWord")
-// .post( (req, res) => {
-//   //yo save that input to muh bank
-//   const wordBank = new WordBank({
-//     //yo gimme dat input
-//     content: req.body.content
-//   })
-//   try {
-   
-//      wordBank.save()
-//     //  res.status(400).send(err)
-//   } catch(err) {
-//     res.status(400).send({msg: "sorry :("})
-//   }
-// })
 
 
-
-//extra credit
-
-//passing a header from client to server 
-//input.type.date
-// then filter data by date that was passed
-
-
-//in postman bringing back header usually a body containing json 
-
-// TODO figure out how to pass a header ? 
-
-// app.get("/api/:findDate",  (req, res) => {
-//   let date = req.params.findDate
-//   let find = WordBank.find({}, (err, found) => {
-//     if(err){
-//       console.warn(err)
-//     }else{
-//       let parseDate = Date.parse(date) //changing inputted date over so it can match
-//       res.send(found)
-      
-//     }
-//   })
-//   // console.log(date)
-// })
 
 //testing for finding dates to send to client
 // app.get("/api/july17", (req, res) => {

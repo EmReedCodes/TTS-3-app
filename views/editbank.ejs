@@ -18,6 +18,7 @@
           <div class="wordBtns">
             <button type="submit" class="wordNew confirmBtn">Next</button>
             <button class="wordRate confirmBtn">Repeat</button>
+            <div class="range" style="--step:10; --min:20; --max:100">
             <input
               type="range"
               min="0.2"
@@ -28,13 +29,14 @@
               id="SpeachRateSlider"
               list="steplist"
             />
-            <datalist id="steplist">
+            </div>
+            <!-- <datalist id="steplist">
               <option>0</option>
               <option>25</option>
               <option>50</option>
               <option>75</option>
               <option>100</option>
-          </datalist>
+          </datalist> -->
           </div>
         </div>
 
@@ -63,6 +65,7 @@
 
               <% } else { %>
               <li class="bankList">
+                <div class="buttons">
                 <div><%= details.content %></div>
                 <a onClick="edit(this)" class="edit">
       
@@ -74,6 +77,7 @@
                   <a onClick="remove('<%= details._id %>', event)" class="remove"></a>
                   <span class="fa-solid fa-trash-can" role="img" aria-label="Delete"></span>
                 </a>
+              </div>
               </li>
               <% } %> 
               <% }) %>

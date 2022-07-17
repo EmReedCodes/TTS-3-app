@@ -60,13 +60,14 @@ html, body {
 .doubleColumn {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
   /* changed below to make room for confirm/cancel */
   flex: 1.5;
 }
 
 .column {
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -148,6 +149,7 @@ a {
   -webkit-appearance: none;
   padding: 0.5rem 0;
   background: #206a5d;
+  display: block;
 }
 .slider[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
@@ -178,6 +180,13 @@ a {
   width: 1.75rem;
   margin-top: calc((-1.75rem / 2) + (0.75rem / 2));
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.range-output {
+  display: flex;
+}
+.range-output .speed {
+  color: #a0389c;
 }
 
 .confirmBtn {
