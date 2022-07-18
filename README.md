@@ -1,4 +1,4 @@
-<div align="center"
+<div align="center">
 <a href="https://www.linkedin.com/in/emilyjreed/">
 <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin badge"/>
 </a>
@@ -9,7 +9,7 @@
 
 # Practice and Repeat Speech
 
- <p align="center">
+ <p>
     I made a website where you can create a bank of words you would like to practice saying outloud and a text to speech function that will repeat those words in a text to speech function. My son was my inspiration as he is diagnosed with a speech delay and would often ask me how to correctly say a word. Now he has his own application to practice whenever he wants. </p>
 
 ## Description
@@ -37,6 +37,9 @@ https://user-images.githubusercontent.com/96320126/179429369-359769ef-b4ee-4cb3-
 - [ ] Add ticks for slider range
 - [ ] Add user login
     - [ ] save bankwords to each users unique id
+-[ ] Figure out how to add instructions for users to fork and download
+-[ ] Add lang button 
+
 
 
 
