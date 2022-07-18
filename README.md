@@ -37,8 +37,8 @@ https://user-images.githubusercontent.com/96320126/179429369-359769ef-b4ee-4cb3-
 - [ ] Add ticks for slider range
 - [ ] Add user login
     - [ ] save bankwords to each users unique id
--[ ] Figure out how to add instructions for users to fork and download
--[ ] Add lang button 
+- [ ] Figure out how to add instructions for users to fork and download
+- [ ] Add lang button 
 
 
 
@@ -62,4 +62,4 @@ https://user-images.githubusercontent.com/96320126/179429369-359769ef-b4ee-4cb3-
 
 Emily Reed- Emilyreed89@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/emreedcodes/tts-3-app](https://github.com/emreedcodes/tts-3-app)
