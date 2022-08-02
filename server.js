@@ -1,14 +1,15 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
-const dotenv = require("dotenv")
+//const dotenv = require("dotenv")
 const mongoose = require("mongoose")
-
+//weird but ok lol (the above quit working)
+require('dotenv').config({ path: '.env' });
 //models
 const WordBank = require("./models/WordBank")
 const { TopologyDescription } = require("mongodb")
 
-dotenv.config()
+
 
 //static files
 
