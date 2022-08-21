@@ -97,7 +97,8 @@ function runRepeat() {
 }
 
 
-//from onclick
+//from onclick can I do just e instead of event?
+//yes I do need full event not just e 
 function edit(id, event) {
   let parentElm = event.target.closest("li")
   let contentElm = parentElm.querySelector(".content")
@@ -155,7 +156,7 @@ async function save(id, event) {
 //if response code 200 
 //then everything is good go ahead remove the class that we added to the parent element 
 
-async function remove(id, event) {
+async function remove(id, e) {
   let parentElm = event.target.closest("li")
   let rawResponse = await fetch("/remove", {
 
@@ -181,37 +182,4 @@ async function remove(id, event) {
   
 }
 
-//TODO toast for notifications 
 
-//option to send word through fetch instead of form
-
-//put new word to db
-
-// async function newWord(word){
-
-// word = document.getElementById('content').value
-// console.log(word)
-// let rawResponse = await fetch("/newWord", {
-
-
-//   method: "POST",
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify({ content: word })
-// })
-
-// if (rawResponse.status == 200) {
-//   const content = await rawResponse.json()
-//   console.log(content)
-  
- 
-
-// } else { // everything is not good
-//   console.log(rawResponse)
-//   alert("something went wrong in the server")
-//   // sendToast({type: 2, "something went wrong"})
-// }
-// word = ''
-// }

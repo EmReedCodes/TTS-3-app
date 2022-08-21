@@ -116,22 +116,3 @@ app
 
 
 
-
-//testing for finding dates to send to client
-// app.get("/api/july17", (req, res) => {
-//   let found = WordBank.find({}, (err, found) => {
-//     if (err) {
-//       console.warn(err)
-//     } else {
-//       let July17 = new Date(Date.parse("06-27-2022"))
-//       let items = found.filter(item => {
-//         let date = new Date(Date.parse(item.date))
-//         return date > July17
-//       })
-//       res.send(items)
-//     }
-//   })
-
-// })
-
-//saving new input 

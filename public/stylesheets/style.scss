@@ -15,7 +15,8 @@ $contrast-dark: darken($contrast, 7%);
 }
 
 html, body {
-  min-height: 100%;
+  // min-height: 100%;
+  height: 100vh;
   padding: 0;
   background-color: $bg;
   font-family: "Lexend", sans-serif;
@@ -23,11 +24,11 @@ html, body {
 }
 
 .holdBoth {
-  // display flex was adding scrollbar
-  // display: flex;
+ display: flex;
   height: 100%;
   width: 90%;
 }
+
 
 .row {
   display: flex;
@@ -36,6 +37,7 @@ html, body {
   width: 100%;
   width: 90%;
   margin: 0 auto;
+  align-items: center;
 
  
   @include respond-to("small") {
@@ -44,11 +46,14 @@ html, body {
     justify-content: center;
     // gap here spaced items on main axis for me
     gap: 1rem;
+    display:block;
+
   }
 }
 
 .doubleColumn {
-   height: 100%;
+  gap: 2rem;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   // justify-content: flex-end;
@@ -56,14 +61,14 @@ html, body {
   flex: 1.5;
   //below is what I want to do without hardcoding it
   // and now hardcoding isnt working lol
-  margin-top: 20rem;
+
 }
 
 .column {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
+  // flex-basis: 100%;
   flex: 1;
   gap: 1rem;
 }
@@ -77,6 +82,11 @@ h2 {
   
   padding-bottom: 1rem;
   font-size: 2rem;
+  @include respond-to("small") {
+
+    text-align: center;
+
+  }
  
 }
 
@@ -104,6 +114,7 @@ ul {
   border-bottom-right-radius: 225px 15px;
   border-bottom-left-radius: 15px 255px;
   border: solid 7px #f58634;
+  
   @include respond-to("small-medium"){
     width: 90%;
   }
@@ -255,7 +266,6 @@ a {
 }
 
 
-/* octo stuff below */
 
 .bankList {
   margin: 1rem;

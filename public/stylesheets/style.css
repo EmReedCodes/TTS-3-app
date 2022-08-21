@@ -29,7 +29,7 @@
 }
 
 html, body {
-  min-height: 100%;
+  height: 100vh;
   padding: 0;
   background-color: #206a5d;
   font-family: "Lexend", sans-serif;
@@ -37,6 +37,7 @@ html, body {
 }
 
 .holdBoth {
+  display: flex;
   height: 100%;
   width: 90%;
 }
@@ -48,29 +49,30 @@ html, body {
   width: 100%;
   width: 90%;
   margin: 0 auto;
+  align-items: center;
 }
 @media (min-width: 1px) and (max-width: 600px) {
   .row {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    display: block;
   }
 }
 
 .doubleColumn {
-  height: 100%;
+  gap: 2rem;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1.5;
-  margin-top: 20rem;
 }
 
 .column {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
   flex: 1;
   gap: 1rem;
 }
@@ -82,6 +84,11 @@ html, body {
 h2 {
   padding-bottom: 1rem;
   font-size: 2rem;
+}
+@media (min-width: 1px) and (max-width: 600px) {
+  h2 {
+    text-align: center;
+  }
 }
 
 ul {
@@ -203,7 +210,6 @@ a {
   background-color: hsla(0deg, 0%, 0%, 0.3);
 }
 
-/* octo stuff below */
 .bankList {
   margin: 1rem;
   display: flex;
