@@ -3,6 +3,8 @@
 
 // https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
 
+//TODO: add to localStorage instead of DB probably silly to have a DB really
+
 //declaring to use speech synth where I place it
 const utterThis = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -143,10 +145,6 @@ async function save(id, event) {
   } else { // everything is not good
     console.log(rawResponse)
   
-    // replace this alert with a toast message: 
-    // https://codepen.io/octoshrimpy/pen/JYPQbo
-    //user wont be able to click 
-    //once clicked flag can go away
     alert("something went wrong in the server")
     // sendToast({type: 2, "something went wrong"})
   }
@@ -156,7 +154,7 @@ async function save(id, event) {
 //if response code 200 
 //then everything is good go ahead remove the class that we added to the parent element 
 
-async function remove(id, e) {
+async function remove(id) {
   let parentElm = event.target.closest("li")
   let rawResponse = await fetch("/remove", {
 

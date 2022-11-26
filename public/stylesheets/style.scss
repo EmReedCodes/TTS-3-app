@@ -71,6 +71,7 @@ html, body {
   // flex-basis: 100%;
   flex: 1;
   gap: 1rem;
+  
 }
 
 
@@ -280,7 +281,7 @@ a {
       display: none;
     }
   }
-
+// the animate
   .content {
     margin: 0.5rem;
     @include animate;
